@@ -2,18 +2,10 @@
 
 Material para el módulo CMO-311 Informática aplicada a sistemas informáticos (robótica).
 
-
-
-
-
-
-
 ## 📜 Licencia
 
 Este material está publicado bajo la licencia  
 [Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).
-
-
 
 Usted es libre de:
 
@@ -34,7 +26,5 @@ Avisos:
 Texto legal completo disponible en:  
 
 https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es
-
-
 
 [<img src="img/logo_licencia.png" title="" alt="Licencia CC BY-NC-SA 4.0" width="219">](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
