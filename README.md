@@ -37,4 +37,4 @@ https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es
 
 
 
-[<img src="file:///J:/Mi%20unidad/Modulos/Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica/IASE-ROBOTICA/img/logo_licencia.png" title="" alt="Licencia CC BY-NC-SA 4.0" width="219">](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
+[<img src="img/logo_licencia.png" title="" alt="Licencia CC BY-NC-SA 4.0" width="219">](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
