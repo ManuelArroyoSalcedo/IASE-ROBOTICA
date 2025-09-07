@@ -168,7 +168,7 @@ La **potencia eléctrica** es la cantidad de energía eléctrica que un disposit
 
 - **Símbolo:** P
 
-- **Unidad:** Vatio (W) → $1\, W = J / s$
+- **Unidad:** Vatio (W) → $1\quad W = J / s$
 
 - **Fórmula básica:**
   
@@ -190,7 +190,7 @@ La **energía eléctrica** es la capacidad de un circuito o dispositivo para rea
 
 - **Símbolo:** E o W
 
-- **Unidad:** Julio (J) → $1\, J = 1\, W \times s$
+- **Unidad:** Julio (J) → $1\quad J = 1\quad W \times s$
 
 - **Relación con la potencia:**
   
@@ -200,13 +200,13 @@ La **energía eléctrica** es la capacidad de un circuito o dispositivo para rea
 
 - **Unidades prácticas en consumo eléctrico:** kilovatio-hora (kWh)
   
-  #### $1 \, kWh = 1000\, W \times \, 3600\ s = 3,6\, \times\, 10^6\, J $
+  #### $1 \quad kWh = 1000\quad W \times \quad 3600\ s = 3,6\quad \times\quad 10^6\quad J $
   
   **Ejemplo práctico:**  
   
   Una bombilla de 100 W encendida durante 10 horas consume:
   
-  #### $E = 100\, W \times 10\, h = 1000\, Wh = 1\, kWh$
+  #### $E = 100\quad W \times 10\quad h = 1000\quad Wh = 1\quad kWh$
 
 - **Analogía:** como la **cantidad total de agua** que ha pasado por una tubería en un periodo de tiempo (no el caudal instantáneo, sino el volumen acumulado).
 
@@ -262,7 +262,7 @@ I = \frac{V}{R}
 $$
 
 $$
-I = \frac{5}{10} = 0,5\, A
+I = \frac{5}{10} = 0,5\quad A
 $$
 
 **Resultado:** La corriente que circula es de **0,5 amperios**
@@ -377,7 +377,7 @@ Aplicamos la primera ley de Kirchhoff en el nodo: $\sum i_k = 0$
 $$
 i_1 + i_2 + i_3 + i_4 = 0
 \Rightarrow 2,5 + 1,0 - 1,6 + i_4 = 0
-\Rightarrow i_4 = -1,9\, \text{A}
+\Rightarrow i_4 = -1,9\quad \text{A}
 $$
 
 **Interpretación:** \($i_4$\) es –1,9 A, es decir, **1,9 A saliendo del nodo**.
@@ -385,11 +385,11 @@ $$
 Comprobación:
 
 $$
-\text{Entrantes} = 2,5 + 1,0 = 3,5\, \text{A}
+\text{Entrantes} = 2,5 + 1,0 = 3,5\quad \text{A}
 $$
 
 $$
-\text{Salientes} = 1,6 + 1,9 = 3,5\, \text{A}
+\text{Salientes} = 1,6 + 1,9 = 3,5\quad \text{A}
 $$
 
 ✔️ **Se cumple la ley**.
@@ -401,33 +401,33 @@ Esquema: un nodo \($V_n$) conectado a **tres resistencias a masa** y una **fuent
 Datos:
 
 - $(V_n = 5\ \text{V}$)  
-- $(R_1 = 5\,\text{k}\Omega,\ R_2 = 10\,\text{k}\Omega,\ R_3 = 10\,\text{k}\Omega)  $
+- $(R_1 = 5\quad\text{k}\Omega,\ R_2 = 10\quad\text{k}\Omega,\ R_3 = 10\quad\text{k}\Omega)  $
 - Fuente de corriente \($I_S$) (entra al nodo).
 
 Corrientes por las resistencias (salen del nodo hacia masa):
 
 $$
-i_{R1} = \frac{V_n}{R_1} = \frac{5}{5000} = 1,0\, \text{mA}
+i_{R1} = \frac{V_n}{R_1} = \frac{5}{5000} = 1,0\quad \text{mA}
 $$
 
 $$
-i_{R2} = \frac{V_n}{R_2} = \frac{5}{10000} = 0,5\, \text{mA}
+i_{R2} = \frac{V_n}{R_2} = \frac{5}{10000} = 0,5\quad \text{mA}
 $$
 
 $$
-i_{R3} = \frac{V_n}{R_3} = \frac{5}{10000} = 0,5\, \text{mA}
+i_{R3} = \frac{V_n}{R_3} = \frac{5}{10000} = 0,5\quad \text{mA}
 $$
 
 Suma de salientes:
 
 $$
-i_{R1} + i_{R2} + i_{R3} = 1,0 + 0,5 + 0,5 = 2,0\, \text{mA}
+i_{R1} + i_{R2} + i_{R3} = 1,0 + 0,5 + 0,5 = 2,0\quad \text{mA}
 $$
 
 Para cumplir la primera ley de Kirchhoff:
 
 $$
-,I_S = i_{R1} + i_{R2} + i_{R3} = 2,0\, \text{mA}
+,I_S = i_{R1} + i_{R2} + i_{R3} = 2,0\quad \text{mA}
 $$
 
 ✔️ La corriente que entra es igual a la que sale ⇒ la ley se cumple.
@@ -933,7 +933,7 @@ Un circuito mixto con tres resistencias (tomar como esquema la imagen al princip
    
    $I_3 = \dfrac{V_{23}}{R_3} = \dfrac{6,5}{30} \approx 0,217\ \text{A}$  
    
-   ✔️ Comprobación: $I_2 + I_3 = 0,325 + 0,217 = 0,542\ \text{A} $  (se aproxima a la $I$ total $0,55\, \text{A}$, diferencia debida al redondeo).
+   ✔️ Comprobación: $I_2 + I_3 = 0,325 + 0,217 = 0,542\ \text{A} $  (se aproxima a la $I$ total $0,55\quad \text{A}$, diferencia debida al redondeo).
 
 ---
 
