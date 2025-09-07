@@ -18,7 +18,7 @@
 
 La electricidad es un fenómeno físico fundamental presente en la naturaleza y en nuestra vida diaria. Para comprenderla, es necesario partir de la estructura de la materia. Toda la materia está formada por átomos, y cada átomo consta de un núcleo (compuesto por protones con carga positiva y neutrones sin carga) alrededor del cual se mueven electrones con carga negativa.
 
-![](J:\Mi%20unidad\Modulos\Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica\IASE-ROBOTICA\UT1%20–%20Electricidad%20y%20circuitos%20electrónicos%20en%20corriente%20continua\img\atomo.jpg)    
+![Átomo](img/atomo.jpg)    
 
 El equilibrio entre protones y electrones hace que un átomo sea neutro. Sin embargo, cuando un átomo pierde o gana electrones, se convierte en una partícula cargada eléctricamente, llamada ion. Este desequilibrio de cargas es el origen de los fenómenos eléctricos.
 
@@ -30,9 +30,10 @@ La electricidad, por tanto, se manifiesta como el **movimiento o la interacción
 
 Dos partículas con la **misma carga se repelen**, mientras que dos partículas con **cargas opuestas se atraen**. Esta interacción es lo que explica gran parte de los comportamientos eléctricos y electromagnéticos.
 
-![](J:\Mi%20unidad\Modulos\Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica\IASE-ROBOTICA\UT1%20–%20Electricidad%20y%20circuitos%20electrónicos%20en%20corriente%20continua\img\300px-Cargas_electricas.png)
+![Cargas eléctricas](img/300px-Cargas_electricas.png)
 
-Podemos observar la electricidad en fenómenos naturales como los rayos en una tormenta, que no son más que descargas de grandes acumulaciones de cargas eléctricas en la atmósfera. En la vida cotidiana, la electricidad se convierte en una fuente de energía imprescindible que alimenta desde dispositivos electrónicos sencillos hasta complejas redes industriales.![](J:\Mi%20unidad\Modulos\Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica\IASE-ROBOTICA\UT1%20–%20Electricidad%20y%20circuitos%20electrónicos%20en%20corriente%20continua\img\img01.jpg)
+Podemos observar la electricidad en fenómenos naturales como los rayos en una tormenta, que no son más que descargas de grandes acumulaciones de cargas eléctricas en la atmósfera. En la vida cotidiana, la electricidad se convierte en una fuente de energía imprescindible que alimenta desde dispositivos electrónicos sencillos hasta complejas redes industriales.
+<img src="img/img01.jpg" title="" alt="Naturaleza" width="478">
 
 En resumen, la electricidad es la consecuencia directa del comportamiento de las partículas cargadas que forman la materia. Comprender este fenómeno es el primer paso para poder analizar, diseñar y trabajar con circuitos eléctricos y sistemas electrónicos.
 
@@ -123,7 +124,7 @@ En los circuitos se usa el **sentido de la corriente convencional**, que va del 
 **Ejemplo:**  
 Si por un conductor pasan 6,25 × 10¹⁸ electrones cada segundo, la intensidad de la corriente es de **1 A**.
 
-![](J:\Mi%20unidad\Modulos\Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica\IASE-ROBOTICA\UT1%20–%20Electricidad%20y%20circuitos%20electrónicos%20en%20corriente%20continua\img\flujo_electrones.png)
+<img src="img/flujo_electrones.png" title="" alt="" width="466">
 
 ---
 
@@ -141,7 +142,7 @@ También, se puede entender como la “presión” que empuja a los electrones a
 
 - **Analogía:** como la altura del agua en un depósito que empuja el líquido hacia abajo.
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/img02.png" alt="" width="308">
+<img title="" src="img/img02.png" alt="" width="308">
 
 ---
 
@@ -306,25 +307,25 @@ El siguiente diagrama se compone de 4 ramas:
 
 4 – Fuente de corriente.
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/rama2.png" alt="" width="372">
+<img title="" src="img/rama2.png" alt="" width="372">
 
 **Nodo**
 
 El siguiente diagrama se compone de 3 nodos:
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/nodo2.png" alt="" width="317">
+<img title="" src="img/nodo2.png" alt="" width="317">
 
 **Lazo**
 
 El siguiente diagrama tiene 3 lazos:
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/lazo.png" alt="" width="360">
+<img title="" src="img/lazo.png" alt="" width="360">
 
 **Malla**
 
 El siguiente diagrama tiene 2 mallas:
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/malla.png" alt="" width="361">
+<img title="" src="img/malla.png" alt="" width="361">
 
 #### Primera ley de Kirchhoff o ley de corrientes (nodos)
 
@@ -336,7 +337,7 @@ $$
 
 $$
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/ley_K1.jpg" alt="" width="246" data-align="center">
+<img title="" src="img/ley_K1.jpg" alt="" width="246" data-align="center">
 
 $$
 i1 + i2 + i5 = i3 + i4
@@ -450,7 +451,7 @@ En otras palabras:
 👉 En resumen:  
 La Segunda Ley de Kirchhoff es una herramienta fundamental para **analizar circuitos complejos**, porque nos da las ecuaciones necesarias para encontrar los valores desconocidos de tensiones e intensidades.
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/Ley2Kir_signo.png" alt="" width="358">
+<img title="" src="img/Ley2Kir_signo.png" alt="" width="358">
 
 $$
 -V1 + V2 + V3 + V4 = 0
@@ -531,7 +532,7 @@ $$
 
 **Ejemplo 1**
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/malla-Ley2_3_flechas_signo.png" alt="" width="422">
+<img title="" src="img/malla-Ley2_3_flechas_signo.png" alt="" width="422">
 
 Malla 1
 
@@ -579,7 +580,7 @@ $$
 
 ###### Ejemplo práctico 1: Malla simple con fuente y dos resistencias
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/ejemplo_practico1.png" alt="" width="222">
+<img title="" src="img/ejemplo_practico1.png" alt="" width="222">
 
 En la siguiente malla hay una fuente de tensión y dos resistencias en serie:
 
@@ -615,7 +616,7 @@ $$
 
 ###### Ejemplo práctico 2 : Dos fuentes en una malla
 
-<img title="" src="file:///J:/Mi unidad/Modulos/Informática aplicada a sistemas electrónicos - Robótica/IASE-ROBOTICA/UT1 – Electricidad y circuitos electrónicos en corriente continua/img/ejemplo_practico2.png" alt="" width="259">
+<img title="" src="img/ejemplo_practico2.png" alt="" width="259">
 
 En la siguiente malla hay dos fuentes y dos resistencias:
 
@@ -689,9 +690,7 @@ Las dos configuraciones <u>básicas</u> son:
 - **Conexión en serie:** los elementos se conectan uno detrás de otro, de manera que la corriente que pasa por ellos es la misma.  
 - **Conexión en paralelo:** los elementos se conectan compartiendo los mismos nodos, de forma que todos ellos tienen la misma tensión aplicada.
 
-<img src="file:///J:/Mi%20unidad/Modulos/Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica/IASE-ROBOTICA/UT1%20–%20Electricidad%20y%20circuitos%20electrónicos%20en%20corriente%20continua/img/circuitoserieyparalelo.png" title="" alt="" width="511">
-
-
+<img src="img/circuitoserieyparalelo.png" title="" alt="" width="511">
 
 Estas configuraciones son fundamentales porque permiten simplificar circuitos complejos en una sola resistencia equivalente y comprender cómo se distribuyen las tensiones y las corrientes.
 
@@ -711,16 +710,19 @@ Un **circuito en serie** es aquel en el que los elementos se conectan uno a cont
 #### Características principales
 
 - La **corriente (I)** es la misma en todos los elementos.  
+
 - La **tensión total ($V_t$)** es la suma de las tensiones parciales:  
   
   $$
   V_t = V_1 + V_2 + V_3 + \dots
   $$
+
 - La **resistencia equivalente (Req)** o total es la suma de todas las resistencias:  
   
   $$
   R_{eq} = R_1 + R_2 + R_3 + \dots
   $$
+
 - La Ley de Ohm se aplica al circuito completo:  
   
   $$
@@ -782,16 +784,19 @@ Un **circuito en paralelo** es aquel en el que los elementos se conectan compart
   $$
   V_t = V_1 = V_2 = V_3 = \dots
   $$
+
 - La **corriente total ($I_t$)** es la suma de las corrientes parciales:  
   
   $$
   I_t = I_1 + I_2 + I_3 + \dots
   $$
+
 - La **resistencia equivalente (Req)** o total se obtiene con:  
   
   $$
   \dfrac{1}{R_{eq}} = \dfrac{1}{R_1} + \dfrac{1}{R_2} + \dfrac{1}{R_3} + \dots
   $$
+
 - La Ley de Ohm se aplica en cada rama:  
   
   $$
@@ -852,22 +857,23 @@ Tres resistencias en paralelo:
 - La **intensidad se reparte** entre las ramas, en proporción a la resistencia de cada una.  
 - La **resistencia equivalente siempre es menor** que la menor de las resistencias individuales.
 
-
-
 ### 3.2.3. Circuitos mixtos
 
 En la práctica, la mayoría de los circuitos electrónicos son **mixtos**, es decir, combinan resistencias en serie y en paralelo dentro del mismo circuito.  
 Este tipo de configuración es la más habitual en la realidad, ya que permite adaptar la corriente y la tensión a diferentes componentes (LEDs, bombillas, motores, etc.).
 
-![](J:\Mi%20unidad\Modulos\Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica\IASE-ROBOTICA\UT1%20–%20Electricidad%20y%20circuitos%20electrónicos%20en%20corriente%20continua\img\circuito_mixto.jpg)
+![](img/circuito_mixto.jpg)
 
 #### Características principales
 
 - Se aplican los **principios de serie y paralelo**, simplificando el circuito paso a paso.  
+
 - Para calcular la **resistencia total**:
+  
   1. Identificar qué resistencias están en paralelo y calcular su resistencia equivalente.  
   2. Sustituirlas por una sola resistencia.  
   3. Repetir el proceso con resistencias en serie.  
+
 - Una vez obtenida la **resistencia total ($R_t$)**, se puede aplicar la Ley de Ohm al circuito completo:  
   
   $$
@@ -912,7 +918,7 @@ Un circuito mixto con tres resistencias (tomar como esquema la imagen al princip
 4. **Tensión en $R_1$:**
    
    $$
-   V_1 = I \times R_1 = 0,55 \times 10 \approx 5,5\ \text{V}
+   V_1 = I \times R_1 = 0,55 \times 10 = 5,5\ \text{V}
    $$
 
 5. **Tensión en el paralelo ($R_2$ y $R_3$):**
@@ -927,7 +933,7 @@ Un circuito mixto con tres resistencias (tomar como esquema la imagen al princip
    
    $I_3 = \dfrac{V_{23}}{R_3} = \dfrac{6,5}{30} \approx 0,217\ \text{A}$  
    
-   ✔️ Comprobación: $I_2 + I_3 = 0,325 + 0,217 \approx 0,542\ \text{A}$ (se aproxima a la $I$ total, diferencia debida al redondeo).
+   ✔️ Comprobación: $I_2 + I_3 = 0,325 + 0,217 = 0,542\ \text{A} $  (se aproxima a la $I$ total $0,55\, \text{A}$, diferencia debida al redondeo).
 
 ---
 
@@ -987,7 +993,7 @@ El **multímetro** o **polímetro** es un instrumento que permite medir diferent
 
 Según el modelo, también puede medir continuidad, frecuencia, capacidad de condensadores o incluso temperatura.
 
-![](J:\Mi%20unidad\Modulos\Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica\IASE-ROBOTICA\UT1%20–%20Electricidad%20y%20circuitos%20electrónicos%20en%20corriente%20continua\img\polimetro.jpg)
+![](img/polimetro.jpg)
 
 ### 5.1. Tipos de multímetro
 
