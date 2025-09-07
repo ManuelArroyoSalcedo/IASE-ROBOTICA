@@ -2,15 +2,11 @@
 
 ## Contenido
 
-1 Conceptos básicos de electricidad.
-
-2 Ley de Ohm y leyes de Kirchhoff.
-
-3 Circuitos eléctricos. Circuitos en serie y paralelo.
-
-4 Introducción a las fuentes de alimentación.
-
-5 Mediciones con polímetro.
+1. Conceptos básicos de electricidad.
+2. Ley de Ohm y leyes de Kirchhoff.
+3. Circuitos eléctricos. Circuitos en serie y paralelo.
+4. Introducción a las fuentes de alimentación.
+5. Mediciones con polímetro.
 
 ## 1 Conceptos básicos de electricidad
 
@@ -33,6 +29,7 @@ Dos partículas con la **misma carga se repelen**, mientras que dos partículas 
 ![Cargas eléctricas](img/300px-Cargas_electricas.png)
 
 Podemos observar la electricidad en fenómenos naturales como los rayos en una tormenta, que no son más que descargas de grandes acumulaciones de cargas eléctricas en la atmósfera. En la vida cotidiana, la electricidad se convierte en una fuente de energía imprescindible que alimenta desde dispositivos electrónicos sencillos hasta complejas redes industriales.
+
 <img src="img/img01.jpg" title="" alt="Naturaleza" width="478">
 
 En resumen, la electricidad es la consecuencia directa del comportamiento de las partículas cargadas que forman la materia. Comprender este fenómeno es el primer paso para poder analizar, diseñar y trabajar con circuitos eléctricos y sistemas electrónicos.
@@ -168,7 +165,7 @@ La **potencia eléctrica** es la cantidad de energía eléctrica que un disposit
 
 - **Símbolo:** P
 
-- **Unidad:** Vatio (W) → $1\quad W = J / s$
+- **Unidad:** Vatio (W) → $1 W = J / s$
 - **Fórmula básica:**
   
   # 🔑 $P = V \times I$  
@@ -188,7 +185,7 @@ La **energía eléctrica** es la capacidad de un circuito o dispositivo para rea
 
 - **Símbolo:** E o W
 
-- **Unidad:** Julio (J) → $1\quad J = 1\quad W \times s$
+- **Unidad:** Julio (J) → $1 J = 1 W \cdot s$
 - **Relación con la potencia:**
   
   # 🔑 $E = P \times t$  
@@ -196,12 +193,12 @@ La **energía eléctrica** es la capacidad de un circuito o dispositivo para rea
 
 - **Unidades prácticas en consumo eléctrico:** kilovatio-hora (kWh)
   
-  #### $1 \quad kWh = 1000\quad W \times \quad 3600\ s = 3,6\quad \times\quad 10^6\quad J $  
+  #### $1 kWh = 1000 W \times 3600 s = 3,6 \times 10^6 J$ 
   **Ejemplo práctico:**  
   
   Una bombilla de 100 W encendida durante 10 horas consume:
   
-  #### $E = 100\quad W \times 10\quad h = 1000\quad Wh = 1\quad kWh$
+  #### $E = 100 W \times 10 h = 1000 Wh = 1 kWh$
 - **Analogía:** como la **cantidad total de agua** que ha pasado por una tubería en un periodo de tiempo (no el caudal instantáneo, sino el volumen acumulado).
 
 ---
@@ -243,9 +240,13 @@ Donde:
 #### Ejemplo sencillo
 
 Un circuito tiene una resistencia de **10 Ω** conectada a una pila de **5 V**.  ¿Cuál es la corriente que circula?  
+
 $V = I \times R$
+
 Despejamos la intensidad de corriente:
-$I = \frac{V}{R} $$I = \frac{5}{10} = 0,5\quad A$
+
+$I = \frac{V}{R} $ ; $I = \frac{5}{10} = 0,5 A$
+
 **Resultado:** La corriente que circula es de **0,5 amperios**
 
 ### 2.2 Leyes de Kirchhoff
@@ -280,12 +281,9 @@ Las leyes de Kirchhoff se utilizan para:
 
 El siguiente diagrama se compone de 4 ramas:
 
-1 – Fuente de voltaje.
-
-2 – Resistencia.
-
-3 – Capacitor.
-
+1 – Fuente de voltaje. <br/>
+2 – Resistencia. <br/>
+3 – Capacitor. <br/>
 4 – Fuente de corriente.
 
 <img title="" src="img/rama2.png" alt="" width="372">
@@ -308,14 +306,16 @@ El siguiente diagrama tiene 2 mallas:
 
 <img title="" src="img/malla.png" alt="" width="361">
 
-#### Primera ley de Kirchhoff o ley de corrientes (nodos)
+#### <u>Primera ley de Kirchhoff o ley de corrientes (nodos)</u>
 
 En cualquier nodo de un circuito, la suma de las corrientes que entran es igual a la suma de las corrientes que salen.  
-$\sum I_{\text{entrantes}} = \sum I_{\text{salientes}}$
-
+### $\sum I_{\text{entrantes}} = \sum I_{\text{salientes}}$
+<br/>
 
 <img title="" src="img/ley_K1.jpg" alt="" width="246" data-align="center">
+
 $i1 + i2 + i5 = i3 + i4$
+
 ##### ¿Qué significa esta ley en un circuito eléctrico?
 
 La primera ley de Kirchhoff refleja el **principio de conservación de la carga eléctrica**: en un nodo no se acumula carga, sino que toda la corriente que llega debe salir.  
@@ -332,7 +332,7 @@ La primera ley de Kirchhoff se aplica a **todos los nodos**, independientemente 
 - En un nodo con **2 ramas**, la ley se cumple de forma trivial: la corriente que entra por una rama es exactamente la misma que sale por la otra ($i_1 = i_2$).  
 - En un nodo con **3 o más ramas**, la ley resulta especialmente útil, ya que permite establecer relaciones entre varias corrientes diferentes.  
 
-### 
+
 
 ###### Ejemplo 1: Nodo con 4 ramas
 
@@ -344,13 +344,20 @@ Datos:
 - \($i_3 = -1,6\ \text{A}$\) (sale)
 - \($i_4 = ?$\)
 
-Aplicamos la primera ley de Kirchhoff en el nodo: $\sum i_k = 0$$i_1 + i_2 + i_3 + i_4 = 0
-\Rightarrow 2,5 + 1,0 - 1,6 + i_4 = 0
-\Rightarrow i_4 = -1,9\quad \text{A}$
+Aplicamos la primera ley de Kirchhoff en el nodo: 
+
+$\sum i_k = 0$
+
+$i_1 + i_2 + i_3 + i_4 = 0 \Rightarrow 2,5 + 1,0 - 1,6 + i_4 = 0 \Rightarrow i_4 = -1,9 \text{A}$
+
 **Interpretación:** \($i_4$\) es –1,9 A, es decir, **1,9 A saliendo del nodo**.
 
 Comprobación:
-$\text{Entrantes} = 2,5 + 1,0 = 3,5\quad \text{A}$$\text{Salientes} = 1,6 + 1,9 = 3,5\quad \text{A}$
+
+$\text{Entrantes} = 2,5 + 1,0 = 3,5 \text{A}$
+
+$\text{Salientes} = 1,6 + 1,9 = 3,5 \text{A}$
+
 ✔️ **Se cumple la ley**.
 
 ###### Ejemplo 2: Nodo con resistencias y fuente de corriente
@@ -359,21 +366,32 @@ Esquema: un nodo \($V_n$) conectado a **tres resistencias a masa** y una **fuent
 
 Datos:
 
-- $(V_n = 5\ \text{V})$  
-- $(R_1 = 5\quad\text{k}\Omega,\ R_2 = 10\quad\text{k}\Omega,\ R_3 = 10\quad\text{k}\Omega)  $- Fuente de corriente \($I_S$) (entra al nodo).
+- $V_n = 5\ \text{V}$  
+- $R_1 = 5\text{k}\Omega,\ R_2 = 10\text{k}\Omega,\ R_3 = 10\text{k}\Omega  $
+- Fuente de corriente $I_S$ (entra al nodo).
 
 Corrientes por las resistencias (salen del nodo hacia masa):
-$i_{R1} = \frac{V_n}{R_1} = \frac{5}{5000} = 1,0\quad \text{mA}$$i_{R2} = \frac{V_n}{R_2} = \frac{5}{10000} = 0,5\quad \text{mA}$$i_{R3} = \frac{V_n}{R_3} = \frac{5}{10000} = 0,5\quad \text{mA}$
+
+$i_{R1} = \frac{V_n}{R_1} = \frac{5}{5000} = 1,0 \text{mA}$
+
+$i_{R2} = \frac{V_n}{R_2} = \frac{5}{10000} = 0,5 \text{mA}$
+
+$i_{R3} = \frac{V_n}{R_3} = \frac{5}{10000} = 0,5 \text{mA}$
+
 Suma de salientes:
-$i_{R1} + i_{R2} + i_{R3} = 1,0 + 0,5 + 0,5 = 2,0\quad \text{mA}$
+
+$i_{R1} + i_{R2} + i_{R3} = 1,0 + 0,5 + 0,5 = 2,0 \text{mA}$
+
 Para cumplir la primera ley de Kirchhoff:
-$I_S = i_{R1} + i_{R2} + i_{R3} = 2,0\quad \text{mA}$
+
+$I_S = i_{R1} + i_{R2} + i_{R3} = 2,0 \text{mA}$
+
 ✔️ La corriente que entra es igual a la que sale ⇒ la ley se cumple.
 
-#### Segunda Ley de Kirchhoff (Ley de las mallas)
+#### <u>Segunda Ley de Kirchhoff (Ley de las mallas)</u>
 
 La **Segunda Ley de Kirchhoff** establece que en una malla cerrada de un circuito eléctrico, la **suma algebraica de todas las tensiones es igual a cero**:
-$\sum V = 0$
+### $\sum V = 0$
 Esto significa que, al recorrer una trayectoria cerrada en un circuito, las subidas y caídas de tensión se compensan.
 
 En otras palabras:
@@ -383,15 +401,21 @@ En otras palabras:
 - Esta ley nos permite **calcular corrientes y tensiones** en circuitos donde hay varias resistencias y mallas conectadas.
 
 👉 En resumen:  
+
 La Segunda Ley de Kirchhoff es una herramienta fundamental para **analizar circuitos complejos**, porque nos da las ecuaciones necesarias para encontrar los valores desconocidos de tensiones e intensidades.
 
 <img title="" src="img/Ley2Kir_signo.png" alt="" width="358">
+
 $-V1 + V2 + V3 + V4 = 0$
+
 **Aclaración importante:**  
 En los esquemas, a menudo se utilizan notaciones como $V2$, $V3$, $V4$ para las resistencias. **Esto no significa que sean fuentes de tensión**, sino que representan la **caída de tensión en cada resistencia**.  
+
 Esa caída debe calcularse con la **Ley de Ohm**:  
+
 $V = I \times R$
-Por tanto, cuando escribimos $(V2, V3, V4)$, realmente queremos decir $(I_2 \times R_2, \ I_3 \times R_3, \ I_4 \times R_4)$  o, también, $((I \times R)_2, (I \times R)_3, (I \times R)_4)$.
+
+Por tanto, cuando escribimos $(V2, V3, V4)$, realmente queremos decir $((I_2 \times R_2, \ I_3 \times R_3, \ I_4 \times R_4)$  o, también, $(I \times R)_2, (I \times R)_3, (I \times R)_4)$.
 
 ---
 
@@ -400,7 +424,7 @@ Por tanto, cuando escribimos $(V2, V3, V4)$, realmente queremos decir $(I_2 \tim
 ###### 1. Elegir un sentido de malla
 
 - Se escoge un sentido de recorrido (horario o antihorario).  
-- Ese sentido se mantiene en todo el análisis. (para evitar errores)  
+- Ese sentido se mantiene en todo el análisis para evitar errores.  
 - Si la corriente calculada resulta negativa, significa que circula en sentido contrario al supuesto.
 
 ---
@@ -440,7 +464,7 @@ De este modo, la resistencia compartida aparecerá con signo distinto en cada ma
 Al recorrer la malla **según el sentido elegido en el paso 1**:
 
 - **Si se entra por el polo positivo de un elemento → signo positivo (+).**  
-- **Si se entra por el polo negativo de un elemento → signo negativo (–).****
+- **Si se entra por el polo negativo de un elemento → signo negativo (–).**
 
 Entrar por positivo o por negativo siempre se entiende **según el sentido de recorrido elegido en el paso 1**.
 
@@ -448,8 +472,11 @@ Entrar por positivo o por negativo siempre se entiende **según el sentido de re
 
 ###### 4. Ecuación de la malla
 
+
 La suma algebraica de todas las tensiones del recorrido debe ser **igual a 0**:
+
 $(+V) + (-I \times R) + \dots = 0$
+
 ---
 
 **Ejemplo 1**
@@ -457,17 +484,33 @@ $(+V) + (-I \times R) + \dots = 0$
 <img title="" src="img/malla-Ley2_3_flechas_signo.png" alt="" width="422">
 
 Malla 1
-$-V1 +V2 + V3 = 0$$-V1 + (I \times R)_2 + (I \times R)_3 = 0$
+
+$-V1 +V2 + V3 = 0$
+
+$-V1 + (I \times R)_2 + (I \times R)_3 = 0$
+
 Malla 2
-$-V3 + V4 = 0$$-(I \times R)_3 + (I \times R)_4 = 0$
+
+$-V3 + V4 = 0$
+
+$-(I \times R)_3 + (I \times R)_4 = 0$
+
 **Ejemplo 2**
 
-<img src="file:///J:/Mi%20unidad/Modulos/Informática%20aplicada%20a%20sistemas%20electrónicos%20-%20Robótica/UT1/malla-Ley2_3_signo.png" title="" alt="" width="427">
+<img src="img/malla-Ley2_3_signo.png" title="" alt="" width="427">
 
 Malla 1
-$-V1 + V3 = 0$$-V1 + (I \times R)_3 = 0$
+
+$-V1 + V3 = 0$
+
+$-V1 + (I \times R)_3 = 0$
+
 Malla 2
-$-V3 +V2 +V4 = 0$$-(I \times R)_3 + (I \times R)_2 + (I \times R)_4 = 0$
+
+$-V3 +V2 +V4 = 0$
+
+$-(I \times R)_3 + (I \times R)_2 + (I \times R)_4 = 0$
+
 ###### Ejemplo práctico 1: Malla simple con fuente y dos resistencias
 
 <img title="" src="img/ejemplo_practico1.png" alt="" width="222">
@@ -481,9 +524,15 @@ En la siguiente malla hay una fuente de tensión y dos resistencias en serie:
 **Resolución**
 
 Aplicamos la Ley de Ohm para la corriente total:
+
 $I = \frac{V}{R_1 + R_2} = \frac{12}{6} = 2\ \text{A}$
+
 Caídas de tensión en cada resistencia:
-$V_1 = I \times R_1 = 2 \times 4 = 8\ \text{V}$$V_2 = I \times R_2 = 2 \times 2 = 4\ \text{V}$
+
+$V_1 = I \times R_1 = 2 \times 4 = 8\ \text{V}$
+
+$V_2 = I \times R_2 = 2 \times 2 = 4\ \text{V}$
+
 Comprobación con la segunda ley de Kirchhoff:
 $12 - 8 - 4 = 0$
 ###### ✔️ Se cumple la ley: la suma algebraica de tensiones en la malla es cero.
@@ -502,13 +551,23 @@ En la siguiente malla hay dos fuentes y dos resistencias:
 **Resolución**
 
 La tensión neta en la malla:
+
 $V_{\text{neto}} = V_1 - V_2 = 10 - 4 = 6\ \text{V}$
+
 Corriente total de la malla:
+
 $I = \frac{V_{\text{neto}}}{R_1 + R_2} = \frac{6}{5} = 1,2\ \text{A}$
+
 Caídas de tensión:
-$V_{R1} = I \times R_1 = 1,2 \times 3 = 3,6\ \text{V}$$V_{R2} = I \times R_2 = 1,2 \times 2 = 2,4\ \text{V}$
+
+$V_{R1} = I \times R_1 = 1,2 \times 3 = 3,6\ \text{V}$
+
+$V_{R2} = I \times R_2 = 1,2 \times 2 = 2,4\ \text{V}$
+
 Comprobación:
+
 $(-10) + (+4) + (+3,6) + (+2,4) = 0$
+
 ###### ✔️ Se cumple la segunda ley de Kirchhoff.
 
 ## 3. Circuitos eléctricos. Circuitos en serie y paralelo
@@ -529,9 +588,11 @@ Los elementos más comunes en un circuito eléctrico son:
 - **Resistencias u otros componentes** (lámparas, motores, condensadores, etc.).  
 - **Interruptores** (para abrir o cerrar el paso de la corriente).
 
-📌 Si el circuito está abierto (por ejemplo, un interruptor en posición OFF), la corriente no circula.  
+<br/>
 
-📌 Si el circuito está cerrado, la corriente fluye desde el polo positivo de la fuente, atravesando los elementos conectados, hasta regresar al polo negativo.
+>📌**Importante** 
+>- Si el circuito está abierto (por ejemplo, un interruptor en posición OFF), la corriente no circula.  
+>- Si el circuito está cerrado, la corriente fluye desde el polo positivo de la fuente, atravesando los elementos conectados, hasta regresar al polo negativo.
 
 ---
 
@@ -721,7 +782,7 @@ Un circuito mixto con tres resistencias (tomar como esquema la imagen al princip
    
    $I_3 = \dfrac{V_{23}}{R_3} = \dfrac{6,5}{30} \approx 0,217\ \text{A}$  
    
-   ✔️ Comprobación: $I_2 + I_3 = 0,325 + 0,217 = 0,542\ \text{A} $  (se aproxima a la $I$ total $0,55\quad \text{A}$, diferencia debida al redondeo).
+   ✔️ Comprobación: $I_2 + I_3 = 0,325 + 0,217 = 0,542\ \text{A} $  (se aproxima a la $I$ total $0,55 \text{A}$, diferencia debida al redondeo).
 
 ---
 
