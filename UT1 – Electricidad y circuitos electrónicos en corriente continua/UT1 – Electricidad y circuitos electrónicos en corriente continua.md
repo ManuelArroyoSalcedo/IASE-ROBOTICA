@@ -245,7 +245,7 @@ $V = I \times R$
 
 Despejamos la intensidad de corriente:
 
-$I = \frac{V}{R} $ ; $I = \frac{5}{10} = 0,5 A$
+$I = \frac{V}{R}$ ; $I = \frac{5}{10} = 0,5 A$
 
 **Resultado:** La corriente que circula es de **0,5 amperios**
 
@@ -647,10 +647,10 @@ Tres resistencias en serie:
   conectadas a una fuente de $V_t = 12\ \text{V}$.
 1. **Resistencia equivalente:**  
    
-   $   R_{eq} = 10 + 20 + 30 = 60\ \Omega$
+   $R_{eq} = 10 + 20 + 30 = 60\ \Omega$
 2. **Corriente en el circuito:**  
    
-   $   I = \dfrac{12}{60} = 0,2\ \text{A}$
+   $I = \dfrac{12}{60} = 0,2\ \text{A}$
 3. **Tensiones en cada resistencia:**  
    
    - $V_1 = 0,2 \times 10 = 2\ \text{V}$  
@@ -659,7 +659,7 @@ Tres resistencias en serie:
 
 4. **Comprobación con la Ley de Kirchhoff de tensiones:**  
    
-   $   V_t = V_1 + V_2 + V_3 = 2 + 4 + 6 = 12\ \text{V}$   
+   $V_t = V_1 + V_2 + V_3 = 2 + 4 + 6 = 12\ \text{V}$   
    ✔️ Se cumple la igualdad.
 
 ---
@@ -714,10 +714,12 @@ Tres resistencias en paralelo:
    $I_t = 1,2 + 0,6 + 0,4 = 2,2\ \text{A}$
 3. **Resistencia equivalente:**  
    
-   $\dfrac{1}{R_{eq}} = \dfrac{1}{10} + \dfrac{1}{20} + \dfrac{1}{30}$   
-   $\dfrac{1}{R_{eq}} = \dfrac{11}{60}$   
+   $\dfrac{1}{R_{eq}} = \dfrac{1}{10} + \dfrac{1}{20} + \dfrac{1}{30}$
+   
+   $\dfrac{1}{R_{eq}} = \dfrac{11}{60}$
+   
    $R_{eq} = \dfrac{60}{11} \approx 5,45\ \Omega$
-4. **Comprobación con la Ley de Ohm:**  
+5. **Comprobación con la Ley de Ohm:**  
    
    $I_t = \dfrac{V_t}{R_{eq}} = \dfrac{12}{5,45} \approx 2,2\ \text{A}$   
    ✔️ Se cumple la igualdad.
@@ -761,28 +763,30 @@ Un circuito mixto con tres resistencias (tomar como esquema la imagen al princip
 - Fuente de tensión: $V = 12\ \text{V}$.
 1. **Resistencia equivalente del paralelo ($R_2$ y $R_3$):**
    
-   $\dfrac{1}{R_{23}} = \dfrac{1}{R_2} + \dfrac{1}{R_3}$   
-   $\dfrac{1}{R_{23}} = \dfrac{1}{20} + \dfrac{1}{30} = \dfrac{5}{60}$   
+   $\dfrac{1}{R_{23}} = \dfrac{1}{R_2} + \dfrac{1}{R_3}$  
+   
+   $\dfrac{1}{R_{23}} = \dfrac{1}{20} + \dfrac{1}{30} = \dfrac{5}{60}$
+   
    $R_{23} = \dfrac{60}{5} = 12\ \Omega$
-2. **Resistencia total del circuito:**
+3. **Resistencia total del circuito:**
    
    $R_t = R_1 + R_{23} = 10 + 12 = 22\ \Omega$
-3. **Corriente total del circuito:**
+4. **Corriente total del circuito:**
    
    $I = \dfrac{V}{R_t} = \dfrac{12}{22} \approx 0,55\ \text{A}$
-4. **Tensión en $R_1$:**
+5. **Tensión en $R_1$:**
    
    $V_1 = I \times R_1 = 0,55 \times 10 = 5,5\ \text{V}$
-5. **Tensión en el paralelo ($R_2$ y $R_3$):**
+6. **Tensión en el paralelo ($R_2$ y $R_3$):**
    
    $V_{23} = V - V_1 = 12 - 5,5 = 6,5\ \text{V}$
-6. **Corriente en cada rama del paralelo:**
+7. **Corriente en cada rama del paralelo:**
    
    $I_2 = \dfrac{V_{23}}{R_2} = \dfrac{6,5}{20} \approx 0,325\ \text{A}$  
    
    $I_3 = \dfrac{V_{23}}{R_3} = \dfrac{6,5}{30} \approx 0,217\ \text{A}$  
    
-   ✔️ Comprobación: $I_2 + I_3 = 0,325 + 0,217 = 0,542\ \text{A} $  (se aproxima a la $I$ total $0,55 \text{A}$, diferencia debida al redondeo).
+   ✔️ Comprobación: $I_2 + I_3 = 0,325 + 0,217 = 0,542\ \text{A}$  (se aproxima a la intensidad total, que recordemos es 0,55 amperios).
 
 ---
 
