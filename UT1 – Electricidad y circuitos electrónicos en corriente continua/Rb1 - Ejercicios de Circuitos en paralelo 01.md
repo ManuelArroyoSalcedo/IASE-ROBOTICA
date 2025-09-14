@@ -24,14 +24,14 @@ Calcula:
 
 **Enunciado**  
 Fuente de **V = 9 V** con: **R1 = 220 Ω**, **R2 = 330 Ω**, **R3 = 470 Ω**.  
-Calcula **$R_{eq}$**, **I1**, **I2**, **I3**, **I_T** y **P_T**. 
+Calcula **$R_{eq}$**, **I1**, **I2**, **I3**, **$I_T$** y **$P_T$**. 
 
 ---
 
 ### Ejercicio 3 — Hallar una resistencia a partir de $I_T$
 
 **Enunciado**  
-Paralelo con **V = 12 V** y **R1 = 220 Ω**. Se desea que la **corriente total** sea **I_T = 100 mA**.  
+Paralelo con **V = 12 V** y **R1 = 220 Ω**. Se desea que la **corriente total** sea **$I_T$ = 100 mA**.  
 Calcula la **resistencia desconocida R2** que debes poner en paralelo con R1.
 
 ---
@@ -58,7 +58,7 @@ Calcula **P1**, **P2**, **P3** y di si **superan** su potencia nominal.
 
 ---
 
-### Ejercicio 6 — Hallar V a partir de I_T medida
+### Ejercicio 6 — Hallar V a partir de $I_T$ medida
 
 **Enunciado**  
 Paralelo con **R1 = 100 Ω**, **R2 = 200 Ω**, **R3 = 400 Ω**.  
@@ -75,6 +75,7 @@ Calcula: **$I_T$**, **$P_T$** y la **energía** consumida en **10 minutos** en *
 ---
 
 ### Ejercicio 8 — Coherencia de medidas (KCL en la fuente)
+KLC = primera Ley de Kirchhof.
 
 **Enunciado**  
 Paralelo con **V = 12 V**, **R1 = 220 Ω**, **R2 = 330 Ω**.  
@@ -110,4 +111,6 @@ Se desea que el **consumo total** sea **$P_T$ = 10 W** añadiendo una **tercera 
 Calcula:  
 
 1) El **valor de R3** necesario.  
-2) **I1**, **I2**, **I3**, **I_T** y verifica **$P_T$**.
+2) **I1**, **I2**, **I3**, **$I_T$** y verifica **$P_T$**.
+
+
