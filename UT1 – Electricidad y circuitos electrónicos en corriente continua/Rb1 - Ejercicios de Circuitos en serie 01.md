@@ -126,7 +126,7 @@ Calcula:
 2) El valor de **R2** para que I = **25 mA**.  
 3) El **rango de corriente** posible (con R2 en sus extremos).
 
-**Solución**  
+
 
 ---
 
