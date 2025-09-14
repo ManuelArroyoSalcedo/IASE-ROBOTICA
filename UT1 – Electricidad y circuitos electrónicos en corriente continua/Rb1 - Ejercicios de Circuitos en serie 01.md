@@ -126,8 +126,6 @@ Calcula:
 2) El valor de **R2** para que I = **25 mA**.  
 3) El **rango de corriente** posible (con R2 en sus extremos).
 
-
-
 ---
 
 ### Ejercicio 9 — Coherencia de medidas en un circuito en serie

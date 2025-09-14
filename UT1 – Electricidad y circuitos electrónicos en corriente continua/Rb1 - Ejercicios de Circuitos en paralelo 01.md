@@ -111,5 +111,3 @@ Calcula:
 
 1) El **valor de R3** necesario.  
 2) **I1**, **I2**, **I3**, **I_T** y verifica **$P_T$**.
-
-
