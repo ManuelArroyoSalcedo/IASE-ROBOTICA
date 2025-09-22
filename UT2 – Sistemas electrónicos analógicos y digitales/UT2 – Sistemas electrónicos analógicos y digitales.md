@@ -10,6 +10,19 @@
 
 ## 1 Conceptos básicos de señales
 
+### 1.1. ¿Qué es una señal?
+
+Una **señal** es una magnitud física que **varía con el tiempo** (u otra variable) y que **transporta información**.  
+Se representa como **s(t)** si es de **tiempo continuo** o **s[n]** si es de **tiempo discreto**.  
+**Ejemplos:**
+
+- Tensión de un micrófono (V) a lo largo del tiempo.
+- Corriente en un circuito (A).
+- Temperatura registrada cada minuto (°C) → señal discreta.
+- Nivel lógico 0/1 en un pin digital → señal digital.
+
+### 1.2 Magnitudes de una señal periódica
+
 Las señales periódicas son fundamentales en electrónica y telecomunicaciones. Se caracterizan por repetirse en el tiempo con un cierto patrón, definido por tres magnitudes principales:
 
 - Amplitud.
@@ -28,11 +41,16 @@ Las señales periódicas son fundamentales en electrónica y telecomunicaciones.
 
 📌**Ejemplo**: Una señal de audio con amplitud de 2 V oscila entre +2 V y −2 V.
 
+###### Ciclo
+
+Es **una repetición completa del patrón de la señal**.  
+Si eliges un punto característico (p. ej., una cresta) y esperas hasta que **vuelva a aparecer el mismo punto con la misma fase**, eso es **un ciclo**.
+
 ###### <u>Periodo</u> (T)
 
 - Es el **tiempo que tarda la señal en repetirse**.
 - Se mide en segundos (s).
-- Cada ciclo completo de la señal tiene un periodo constante.
+- Cada ciclo completo de la señal tiene un periodo constante. **En una señal periódica**, la duración de **cada repetición completa** del patrón (cada **ciclo**) es **la misma** y vale **T**.
 
 📌**Ejemplo**: En la red eléctrica europea, la señal es senoidal y se repite cada 0,02 s (20 ms).
 
@@ -55,8 +73,8 @@ $f = \frac{1}{T}$
 
 📌**Ejemplo**:  
 
-- Una señal con \( $T = 0,01 \, s$ \) tiene \( $f = 100 \, Hz$ \).  
-- Una señal con \( $T = 0,001 \, s$ \) tiene \( $f = 1000 \, Hz$ \).  
+- Una señal con ( $T = 0,01 \, s$ ) tiene ( $f = 100 \, Hz$ ).  
+- Una señal con ( $T = 0,001 \, s$ ) tiene ( $f = 1000 \, Hz$ ).  
 
 #### Representación matemática de una señal senoidal
 
@@ -66,16 +84,20 @@ $v(t) = A \cdot \sin(\omega t + \varphi)$
 
 Donde:
 
-- \( $A$ \): Amplitud.
-- \( $\omega = 2 \pi f$ \): Frecuencia angular (rad/s).
-- \( $t$ \): Tiempo (s).
-- \( $\varphi$ \): Fase inicial.
+- ( $A$ ): Amplitud.
+- ( $\omega = 2 \pi f$ ): Frecuencia angular (rad/s).
+- ( $t$ ): Tiempo (s).
+- ( $\varphi$ ): Fase inicial.
+
+> **Fase ($\varphi$)**
+> 
+> Indica la **posición dentro del ciclo** de una señal periódica (en grados o radianes).
 
 #### Ejemplo práctico
 
 En la red eléctrica:
 
-- Amplitud eficaz ≈ 230 V (valor RMS).
+- Valor eficaz (RMS) ≈ 230 V.
 - Amplitud pico ≈ 325 V.
 - Frecuencia = 50 Hz.
 - Periodo = 0,02 s.
@@ -87,7 +109,9 @@ La **amplitud**, el **periodo** y la **frecuencia** son las tres magnitudes bás
 
 ## 2. Tipos de señales
 
-Las señales eléctricas se pueden clasificar de distintas formas según sus características.  
+Las señales se pueden clasificar de distintas formas según sus características.
+Aunque estas clasificaciones son generales (eléctricas, acústicas, ópticas, etc.),
+en este módulo las aplicaremos principalmente a **señales eléctricas** (tensión y corriente).
 
 A continuación, se describen las principales clasificaciones que permiten diferenciar los tipos de señales en función de su comportamiento en el tiempo, su regularidad, su naturaleza y su representación.
 
@@ -104,19 +128,22 @@ Las señales eléctricas pueden clasificarse según la **forma en la que varían
 
 #### 2.1.1. Señales continuas (DC)
 
-- Mantienen siempre el **mismo signo** (no cambian de polaridad).
-- Pueden ser **constantes** (valor fijo en el tiempo) o **variables** (cambian de magnitud, pero no de signo).
-- Se representan como una línea recta paralela al eje del tiempo (en el caso de una señal constante).
-- Son típicas de fuentes de alimentación de corriente continua, pilas o baterías.
+- Es aquella que es **constante** en el tiempo: ( $v(t) = V_{\text{DC}}$ ).
+- Como consecuencia, **mantiene el mismo signo** (no cambia de polaridad).
+- Se representa como una **línea recta** paralela al eje del tiempo.
+- También se denomina **DC pura**.
 
-📌 **Ejemplo**:  
+> **No confundir** con la **señal unipolar (CC pulsante)**: varía en el tiempo pero no cambia de signo.  
+> Puede modelarse como ( $v(t) = V_{\text{DC}} + v_{\text{ac}}(t)$ ) con ( $\overline{v_{\text{ac}}}=0$ ). **No** es DC pura.
 
-- Una pila de 1,5 V → señal continua y constante.  
-- Una señal de 0 a +5 V que varía con el tiempo (como la salida de un sensor analógico) → señal continua pero variable.
+📌 **Ejemplos**
+
+- Una pila de 1,5 V → **DC pura** (constante).
+- Una señal que oscila entre 0 y +5 V (p. ej., salida de un sensor analógico) → **unipolar variable (CC pulsante)**; **no** es DC pura.
 
 #### 2.1.2. Señales alternas (AC)
 
-- Cambian de **signo periódicamente**, pasando de valores positivos a negativos respecto a un valor de referencia.
+- **Varían periódicamente**. En **AC pura** el valor medio es 0 y **cambia de signo** respecto a 0 V.  
 - La forma de onda más común es la **senoidal**, aunque también puede ser cuadrada, triangular u otras.
 - Están presentes en la red eléctrica y en muchas señales de comunicación.
 - En una señal alterna se definen magnitudes características:
@@ -133,16 +160,14 @@ Las señales eléctricas pueden clasificarse según la **forma en la que varían
 | Característica | Señal continua (DC)                    | Señal alterna (AC)                       |
 | -------------- | -------------------------------------- | ---------------------------------------- |
 | Polaridad      | Siempre el mismo signo                 | Cambia periódicamente de signo           |
-| Valor          | Constante o variable, sin invertir     | Oscila entre valores positivos/negativos |
+| Valor          | Constante                              | Oscila entre valores positivos/negativos |
 | Fuente típica  | Pilas, baterías, fuentes DC            | Red eléctrica, generadores AC            |
 | Aplicaciones   | Electrónica digital, carga de baterías | Transporte de energía, comunicaciones    |
 
-### 
-
 ✍️ **Resumen**:  
 
-- La **señal continua (DC)** se mantiene con el mismo signo y se utiliza en la alimentación de la mayoría de los circuitos electrónicos.  
-- La **señal alterna (AC)** cambia de polaridad periódicamente y se utiliza principalmente en la distribución de energía eléctrica y en transmisión de información.
+- **Señal continua (DC pura):** es **constante en el tiempo** ($v(t)=V_{\text{DC}}$). Como consecuencia, **no cambia de signo**. Está presente en pilas y fuentes reguladas.
+- **Señal alterna (AC pura):** **varía periódicamente** con **valor medio 0**; **cambia de signo**. Presente en la **red eléctrica** y en muchas **señales de comunicación**.
 
 ---
 
@@ -156,7 +181,7 @@ Otra forma de clasificar las señales es según su **regularidad en el tiempo**.
 
 - Son aquellas que **se repiten de forma idéntica cada cierto intervalo de tiempo** llamado **periodo (T)**.
 - Pueden tener distintas formas de onda: **senoidal, cuadrada, triangular, diente de sierra**, etc.
-- Se caracterizan por su **frecuencia fundamental** \( f = 1/T \).  
+- Se caracterizan por su **frecuencia fundamental** ( $f = \frac {1}{T} $).  
   Si la forma de onda no es senoidal pura, puede descomponerse en la frecuencia fundamental y sus **armónicos** (teorema de Fourier).
 - Son muy utilizadas en comunicaciones, electrónica de potencia y sistemas digitales.
 
@@ -172,6 +197,7 @@ Otra forma de clasificar las señales es según su **regularidad en el tiempo**.
 - Sus valores cambian de forma **impredecible** en el tiempo.
 - No se pueden caracterizar con un único periodo o frecuencia, sino mediante **propiedades estadísticas** (media, varianza, densidad espectral de potencia).
 - Son inevitables en la práctica, porque siempre existen fuentes de **ruido** en los sistemas electrónicos.
+- Las señales aleatorias son un caso de las señales aperiódicas.
 
 📌 **Ejemplos de señales aleatorias**:
 
@@ -205,19 +231,19 @@ Otra clasificación de las señales se hace en función de cómo se representa l
 - Están definidas para **todos los valores del tiempo (t)**.
 - La variable independiente es **continua** → el tiempo puede tomar infinitos valores.
 - Son típicas de sistemas **analógicos**.
-- Se representan mediante funciones matemáticas como \( $x(t)$ \).
+- Se representan mediante funciones matemáticas como ( $x(t)$ ).
 
 📌 **Ejemplos**:
 
 - La tensión en los bornes de una pila.
-- Una señal senoidal de audio \( $x(t) = A \cdot \sin(2 \pi f t)$ \).
+- Una señal senoidal de audio ( $x(t) = A \cdot \sin(2 \pi f t)$ ).
 - La salida de un micrófono.
 
 #### 2.3.2. Señales en tiempo discreto
 
 - Están definidas solo en **instantes concretos de tiempo** (muestras).
 - La variable independiente toma **valores discretos** → se numeran como enteros.
-- Se representan como \( $x[n]$ \), donde \( $n$ \) es el número de muestra.
+- Se representan como ( $x[n]$ ), donde ( $n$ ) es el número de muestra.
 - Son la base del **procesamiento digital de señales (DSP)**.
 
 📌 **Ejemplos**:
@@ -228,12 +254,12 @@ Otra clasificación de las señales se hace en función de cómo se representa l
 
 #### 2.3.3. Comparativa
 
-| Característica | Señal en tiempo continuo \(x(t)\) | Señal en tiempo discreto \(x[n]\) |
-| -------------- | --------------------------------- | --------------------------------- |
-| Tiempo         | Continuo (todos los instantes)    | Discreto (muestras)               |
-| Representación | Función matemática                | Secuencia de valores              |
-| Dominio        | Analógico                         | Digital                           |
-| Ejemplo        | Micrófono, termómetro de mercurio | Audio en CD, imágenes digitales   |
+| Característica | Señal en tiempo continuo (x(t))   | Señal en tiempo discreto (x[n]) |
+| -------------- | --------------------------------- | ------------------------------- |
+| Tiempo         | Continuo (todos los instantes)    | Discreto (muestras)             |
+| Representación | Función matemática                | Secuencia de valores            |
+| Dominio        | Analógico                         | Digital                         |
+| Ejemplo        | Micrófono, termómetro de mercurio | Audio en CD, imágenes digitales |
 
 ✍️ **Resumen**:  
 
@@ -317,19 +343,19 @@ Este proceso se realiza mediante un **convertidor analógico–digital (ADC)** y
 
 - Consiste en **tomar muestras** de la señal analógica en instantes de tiempo separados.  
 
-- La frecuencia con la que se toman muestras se llama **frecuencia de muestreo** \( $f_s$ \).  
+- La frecuencia con la que se toman muestras se llama **frecuencia de muestreo** ( $f_s$ ).  
 
 - Debe cumplir el **teorema de Nyquist**:  
   
   $f_s \geq 2 \cdot f_{max}$
   
-  donde \( f_{max} \) es la máxima frecuencia presente en la señal.  
+  donde ( $f_{max}$ ) es la máxima frecuencia presente en la señal.  
 
 - Si no se cumple, aparece el **aliasing**: distorsión por muestreo insuficiente.
 
 📌 **Ejemplo**:  
 
-- En un CD de audio, \( $f_s = 44.100 \, Hz$ \) para cubrir hasta 22 kHz de ancho de banda (rango auditivo humano).
+- En un CD de audio, ( $f_s = 44.100 \, Hz$ ) para cubrir hasta 22 kHz de ancho de banda (rango auditivo humano).
 
 ### 3.2. Cuantificación
 
@@ -345,8 +371,8 @@ Este proceso se realiza mediante un **convertidor analógico–digital (ADC)** y
 
 📌 **Ejemplo**:  
 
-- Con un ADC de 8 bits → \( $2^8$ = 256 \) niveles posibles.  
-- Con un ADC de 16 bits → \( $2^{16}$ = 65.536 \) niveles posibles (más precisión).
+- Con un ADC de 8 bits → ( $2^8$ = 256 ) niveles posibles.  
+- Con un ADC de 16 bits → ( $2^{16}$ = 65.536 ) niveles posibles (más precisión).
 
 ### 3.3. Codificación
 
@@ -360,7 +386,7 @@ Este proceso se realiza mediante un **convertidor analógico–digital (ADC)** y
 En un sistema de audio digital:  
 
 1. El micrófono genera una señal analógica (voz).  
-2. El **ADC** muestrea la señal a \( $f_s = 44.100 \, Hz$ \).  
+2. El **ADC** muestrea la señal a( $f_s = 44.100 \, Hz$ ).  
 3. Cada muestra se cuantifica con **16 bits** (65.536 niveles).  
 4. Los valores cuantificados se codifican en binario y se almacenan en un archivo WAV o transmiten como flujo digital.
 
