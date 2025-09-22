@@ -166,9 +166,11 @@ La **potencia eléctrica** es la cantidad de energía eléctrica que un disposit
 - **Símbolo:** P
 
 - **Unidad:** Vatio (W) → $1 W = J / s$
+
 - **Fórmula básica:**
   
-  # 🔑 $P = V \times I$  
+  # 🔑 $P = V \times I$
+  
   (Potencia = Voltaje × Intensidad)
 
 - **Medida con:** vatímetro o calculada a partir de la tensión y la corriente medidas con un multímetro.
@@ -186,19 +188,23 @@ La **energía eléctrica** es la capacidad de un circuito o dispositivo para rea
 - **Símbolo:** E o W
 
 - **Unidad:** Julio (J) → $1 J = 1 W \cdot s$
+
 - **Relación con la potencia:**
   
-  # 🔑 $E = P \times t$  
+  # 🔑 $E = P \times t$
+  
   (Energía = Potencia × Tiempo)
 
 - **Unidades prácticas en consumo eléctrico:** kilovatio-hora (kWh)
   
-  #### $1 kWh = 1000 W \times 3600 s = 3,6 \times 10^6 J$ 
+  #### $1 kWh = 1000 W \times 3600 s = 3,6 \times 10^6 J$
+  
   **Ejemplo práctico:**  
   
   Una bombilla de 100 W encendida durante 10 horas consume:
   
   #### $E = 100 W \times 10 h = 1000 Wh = 1 kWh$
+
 - **Analogía:** como la **cantidad total de agua** que ha pasado por una tubería en un periodo de tiempo (no el caudal instantáneo, sino el volumen acumulado).
 
 ---
@@ -231,6 +237,7 @@ La **Ley de Ohm** establece que la tensión eléctrica (V) entre los extremos de
 #### Fórmula:
 
 #### $V = I \times R$
+
 Donde:  
 
 - **V** = Voltaje (voltios, V)  
@@ -309,7 +316,9 @@ El siguiente diagrama tiene 2 mallas:
 #### <u>Primera ley de Kirchhoff o ley de corrientes (nodos)</u>
 
 En cualquier nodo de un circuito, la suma de las corrientes que entran es igual a la suma de las corrientes que salen.  
+
 ### $\sum I_{\text{entrantes}} = \sum I_{\text{salientes}}$
+
 <br/>
 
 <img title="" src="img/ley_K1.jpg" alt="" width="246" data-align="center">
@@ -331,8 +340,6 @@ La primera ley de Kirchhoff se aplica a **todos los nodos**, independientemente 
 
 - En un nodo con **2 ramas**, la ley se cumple de forma trivial: la corriente que entra por una rama es exactamente la misma que sale por la otra ($i_1 = i_2$).  
 - En un nodo con **3 o más ramas**, la ley resulta especialmente útil, ya que permite establecer relaciones entre varias corrientes diferentes.  
-
-
 
 ###### Ejemplo 1: Nodo con 4 ramas
 
@@ -391,7 +398,9 @@ $I_S = i_{R1} + i_{R2} + i_{R3} = 2,0 \text{mA}$
 #### <u>Segunda Ley de Kirchhoff (Ley de las mallas)</u>
 
 La **Segunda Ley de Kirchhoff** establece que en una malla cerrada de un circuito eléctrico, la **suma algebraica de todas las tensiones es igual a cero**:
+
 ### $\sum V = 0$
+
 Esto significa que, al recorrer una trayectoria cerrada en un circuito, las subidas y caídas de tensión se compensan.
 
 En otras palabras:
@@ -472,7 +481,6 @@ Entrar por positivo o por negativo siempre se entiende **según el sentido de re
 
 ###### 4. Ecuación de la malla
 
-
 La suma algebraica de todas las tensiones del recorrido debe ser **igual a 0**:
 
 $(+V) + (-I \times R) + \dots = 0$
@@ -535,6 +543,7 @@ $V_2 = I \times R_2 = 2 \times 2 = 4\ \text{V}$
 
 Comprobación con la segunda ley de Kirchhoff:
 $12 - 8 - 4 = 0$
+
 ###### ✔️ Se cumple la ley: la suma algebraica de tensiones en la malla es cero.
 
 ###### Ejemplo práctico 2 : Dos fuentes en una malla
@@ -590,9 +599,10 @@ Los elementos más comunes en un circuito eléctrico son:
 
 <br/>
 
->📌**Importante** 
->- Si el circuito está abierto (por ejemplo, un interruptor en posición OFF), la corriente no circula.  
->- Si el circuito está cerrado, la corriente fluye desde el polo positivo de la fuente, atravesando los elementos conectados, hasta regresar al polo negativo.
+> 📌**Importante** 
+> 
+> - Si el circuito está abierto (por ejemplo, un interruptor en posición OFF), la corriente no circula.  
+> - Si el circuito está cerrado, la corriente fluye desde el polo positivo de la fuente, atravesando los elementos conectados, hasta regresar al polo negativo.
 
 ---
 
@@ -629,13 +639,16 @@ Un **circuito en serie** es aquel en el que los elementos se conectan uno a cont
 - La **tensión total ($V_t$)** es la suma de las tensiones parciales:  
   
   $V_t = V_1 + V_2 + V_3 + \dots$
+
 - La **resistencia equivalente (Req)** o total es la suma de todas las resistencias:  
   
   $R_{eq} = R_1 + R_2 + R_3 + \dots$
+
 - La Ley de Ohm se aplica al circuito completo:  
   
   $I = \dfrac{V_t}{R_{eq}}$
-#### Ejemplo resuelto
+  
+  #### Ejemplo resuelto
 
 Tres resistencias en serie:  
 
@@ -648,9 +661,11 @@ Tres resistencias en serie:
 1. **Resistencia equivalente:**  
    
    $R_{eq} = 10 + 20 + 30 = 60\ \Omega$
+
 2. **Corriente en el circuito:**  
    
    $I = \dfrac{12}{60} = 0,2\ \text{A}$
+
 3. **Tensiones en cada resistencia:**  
    
    - $V_1 = 0,2 \times 10 = 2\ \text{V}$  
@@ -679,18 +694,19 @@ Un **circuito en paralelo** es aquel en el que los elementos se conectan compart
 - La **tensión (V)** es la misma en todos los elementos:  
   
   $V_t = V_1 = V_2 = V_3 = \dots$
+
 - La **corriente total ($I_t$)** es la suma de las corrientes parciales:  
   
   $I_t = I_1 + I_2 + I_3 + \dots$
-  
+
 - La **resistencia equivalente (Req)** o total se obtiene con:  
   
   $\dfrac{1}{R_{eq}} = \dfrac{1}{R_1} + \dfrac{1}{R_2} + \dfrac{1}{R_3} + \dots$
-  
+
 - La Ley de Ohm se aplica en cada rama:  
   
   $I_n = \dfrac{V}{R_n}$
-  
+
 #### Ejemplo resuelto
 
 Tres resistencias en paralelo:  
@@ -712,6 +728,7 @@ Tres resistencias en paralelo:
 2. **Corriente total:**  
    
    $I_t = 1,2 + 0,6 + 0,4 = 2,2\ \text{A}$
+
 3. **Resistencia equivalente:**  
    
    $\dfrac{1}{R_{eq}} = \dfrac{1}{10} + \dfrac{1}{20} + \dfrac{1}{30}$
@@ -719,7 +736,8 @@ Tres resistencias en paralelo:
    $\dfrac{1}{R_{eq}} = \dfrac{11}{60}$
    
    $R_{eq} = \dfrac{60}{11} \approx 5,45\ \Omega$
-5. **Comprobación con la Ley de Ohm:**  
+
+4. **Comprobación con la Ley de Ohm:**  
    
    $I_t = \dfrac{V_t}{R_{eq}} = \dfrac{12}{5,45} \approx 2,2\ \text{A}$   
    ✔️ Se cumple la igualdad.
@@ -752,7 +770,8 @@ Este tipo de configuración es la más habitual en la realidad, ya que permite a
 - Una vez obtenida la **resistencia total ($R_t$)**, se puede aplicar la Ley de Ohm al circuito completo:  
   
   $I = \dfrac{V}{R_t}$
-#### Ejemplo resuelto
+  
+  #### Ejemplo resuelto
 
 Un circuito mixto con tres resistencias (tomar como esquema la imagen al principio de este apartado):
 
@@ -768,19 +787,24 @@ Un circuito mixto con tres resistencias (tomar como esquema la imagen al princip
    $\dfrac{1}{R_{23}} = \dfrac{1}{20} + \dfrac{1}{30} = \dfrac{5}{60}$
    
    $R_{23} = \dfrac{60}{5} = 12\ \Omega$
-3. **Resistencia total del circuito:**
+
+2. **Resistencia total del circuito:**
    
    $R_t = R_1 + R_{23} = 10 + 12 = 22\ \Omega$
-4. **Corriente total del circuito:**
+
+3. **Corriente total del circuito:**
    
    $I = \dfrac{V}{R_t} = \dfrac{12}{22} \approx 0,55\ \text{A}$
-5. **Tensión en $R_1$:**
+
+4. **Tensión en $R_1$:**
    
    $V_1 = I \times R_1 = 0,55 \times 10 = 5,5\ \text{V}$
-6. **Tensión en el paralelo ($R_2$ y $R_3$):**
+
+5. **Tensión en el paralelo ($R_2$ y $R_3$):**
    
    $V_{23} = V - V_1 = 12 - 5,5 = 6,5\ \text{V}$
-7. **Corriente en cada rama del paralelo:**
+
+6. **Corriente en cada rama del paralelo:**
    
    $I_2 = \dfrac{V_{23}}{R_2} = \dfrac{6,5}{20} \approx 0,325\ \text{A}$  
    

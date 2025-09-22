@@ -1,102 +1,374 @@
-# **UT2 – Sistemas electrónicos analógicos y digitales**
+# UT2 – Sistemas electrónicos analógicos y digitales
 
 ## Contenido
 
-1. Fundamentos básicos de las señales eléctricas.  
-2. Señales continuas y alternas.  
-3. Señales periódicas y aleatorias.  
-4. Amplitud, frecuencia y periodo de una señal periódica.  
-5. Señales en tiempo continuo y discreto.  
-6. Conversión analógico-digital: muestreo, cuantificación y codificación.
+1. Conceptos básicos de señales.
+2. Tipos de señales.
+3. Conversión analógico-digital (A/D).
 
 ---
 
-## 1. Fundamentos básicos de las señales eléctricas
+## 1 Conceptos básicos de señales
 
-Las señales eléctricas son variaciones de magnitudes como la **tensión (V)** o la **corriente (I)** a lo largo del tiempo.  
-Constituyen la base de la electrónica y las telecomunicaciones.
+Las señales periódicas son fundamentales en electrónica y telecomunicaciones. Se caracterizan por repetirse en el tiempo con un cierto patrón, definido por tres magnitudes principales:
 
-- **Corriente (I):** flujo de carga eléctrica por un conductor.  
-- **Tensión (V):** diferencia de potencial eléctrico entre dos puntos.  
-- **Resistencia (R):** oposición al paso de la corriente.  
-- **Potencia (P):** energía consumida o generada por unidad de tiempo.  
-  - $P = V \cdot I$  
-- **Energía (E):** capacidad de realizar un trabajo eléctrico.  
-  - $E = P \cdot t$
+- Amplitud.
+
+- Periodo.
+
+- Frecuencia.
+
+<img title="IMG" src="img/magseniales.png" alt="Magnitudes de señales" width="546">
+
+###### <u>Amplitud</u>
+
+- Es el **valor máximo** que alcanza la señal respecto a su nivel de referencia (habitualmente 0).
+- Se mide en voltios (V) si hablamos de tensión, o en amperios (A) si hablamos de corriente.
+- En una señal senoidal, corresponde al valor pico (positivo o negativo).
+
+📌**Ejemplo**: Una señal de audio con amplitud de 2 V oscila entre +2 V y −2 V.
+
+###### <u>Periodo</u> (T)
+
+- Es el **tiempo que tarda la señal en repetirse**.
+- Se mide en segundos (s).
+- Cada ciclo completo de la señal tiene un periodo constante.
+
+📌**Ejemplo**: En la red eléctrica europea, la señal es senoidal y se repite cada 0,02 s (20 ms).
+
+###### <u>Frecuencia</u> (f)
+
+- Es el **número de ciclos completos que ocurren en un segundo**.
+- Se mide en hercios (Hz).
+- Está relacionada con el periodo mediante la fórmula:
+
+$f = \frac{1}{T}$
+
+📌**Ejemplo**: Una frecuencia de 50 Hz significa que la señal completa 50 ciclos cada segundo.
 
 ---
 
-## 2. Señales continuas y alternas
+#### Relación entre periodo y frecuencia
 
-- **Señal continua (DC):** mantiene su valor constante en el tiempo.  
-  Ejemplo: la tensión de una pila o batería.
+- **Periodo corto ⇒ frecuencia alta**.  
+- **Periodo largo ⇒ frecuencia baja**.  
 
-- **Señal alterna (AC):** varía periódicamente de valor, cambiando de polaridad.  
-  Ejemplo: la tensión de la red eléctrica.
+📌**Ejemplo**:  
+
+- Una señal con \( $T = 0,01 \, s$ \) tiene \( $f = 100 \, Hz$ \).  
+- Una señal con \( $T = 0,001 \, s$ \) tiene \( $f = 1000 \, Hz$ \).  
+
+#### Representación matemática de una señal senoidal
+
+Una señal senoidal puede describirse como:
+
+$v(t) = A \cdot \sin(\omega t + \varphi)$
+
+Donde:
+
+- \( $A$ \): Amplitud.
+- \( $\omega = 2 \pi f$ \): Frecuencia angular (rad/s).
+- \( $t$ \): Tiempo (s).
+- \( $\varphi$ \): Fase inicial.
+
+#### Ejemplo práctico
+
+En la red eléctrica:
+
+- Amplitud eficaz ≈ 230 V (valor RMS).
+- Amplitud pico ≈ 325 V.
+- Frecuencia = 50 Hz.
+- Periodo = 0,02 s.
+
+**Resumen**:  
+La **amplitud**, el **periodo** y la **frecuencia** son las tres magnitudes básicas que describen cualquier señal periódica. Su conocimiento es imprescindible para comprender el funcionamiento de los sistemas electrónicos y de comunicación.
 
 ---
 
-## 3. Señales periódicas y aleatorias
+## 2. Tipos de señales
 
-- **Señales periódicas:** se repiten de forma regular en el tiempo.  
+Las señales eléctricas se pueden clasificar de distintas formas según sus características.  
+
+A continuación, se describen las principales clasificaciones que permiten diferenciar los tipos de señales en función de su comportamiento en el tiempo, su regularidad, su naturaleza y su representación.
+
+**2.1. Señales continuas y alternas.**
+**2.2. Señales periódicas y aleatorias.**
+**2.3. Señales en tiempo continuo y discreto.**
+**2.4. Señales analógicas y digitales.**
+
+### 2.1. Señales continuas y alternas
+
+Las señales eléctricas pueden clasificarse según la **forma en la que varían en el tiempo** en dos tipos principales: **continuas (DC)** y **alternas (AC)**.
+
+<img src="img/altercont.png" title="" alt="Señal alterna y continua" width="475">
+
+#### 2.1.1. Señales continuas (DC)
+
+- Mantienen siempre el **mismo signo** (no cambian de polaridad).
+- Pueden ser **constantes** (valor fijo en el tiempo) o **variables** (cambian de magnitud, pero no de signo).
+- Se representan como una línea recta paralela al eje del tiempo (en el caso de una señal constante).
+- Son típicas de fuentes de alimentación de corriente continua, pilas o baterías.
+
+📌 **Ejemplo**:  
+
+- Una pila de 1,5 V → señal continua y constante.  
+- Una señal de 0 a +5 V que varía con el tiempo (como la salida de un sensor analógico) → señal continua pero variable.
+
+#### 2.1.2. Señales alternas (AC)
+
+- Cambian de **signo periódicamente**, pasando de valores positivos a negativos respecto a un valor de referencia.
+- La forma de onda más común es la **senoidal**, aunque también puede ser cuadrada, triangular u otras.
+- Están presentes en la red eléctrica y en muchas señales de comunicación.
+- En una señal alterna se definen magnitudes características:
+  - **Valor pico (Vp)**: amplitud máxima.
+  - **Valor pico a pico (Vpp)**: diferencia entre el valor máximo positivo y el máximo negativo.
+  - **Valor eficaz (RMS)**: valor equivalente en corriente continua que produciría el mismo efecto de potencia.
+
+📌 **Ejemplo**:  
+
+- La red eléctrica doméstica en Europa: 230 V RMS, 50 Hz, onda senoidal.
+
+#### 2.1.3. Comparativa entre señales continuas y alternas
+
+| Característica | Señal continua (DC)                    | Señal alterna (AC)                       |
+| -------------- | -------------------------------------- | ---------------------------------------- |
+| Polaridad      | Siempre el mismo signo                 | Cambia periódicamente de signo           |
+| Valor          | Constante o variable, sin invertir     | Oscila entre valores positivos/negativos |
+| Fuente típica  | Pilas, baterías, fuentes DC            | Red eléctrica, generadores AC            |
+| Aplicaciones   | Electrónica digital, carga de baterías | Transporte de energía, comunicaciones    |
+
+### 
+
+✍️ **Resumen**:  
+
+- La **señal continua (DC)** se mantiene con el mismo signo y se utiliza en la alimentación de la mayoría de los circuitos electrónicos.  
+- La **señal alterna (AC)** cambia de polaridad periódicamente y se utiliza principalmente en la distribución de energía eléctrica y en transmisión de información.
+
+---
+
+### 2.2. Señales periódicas y aleatorias
+
+Otra forma de clasificar las señales es según su **regularidad en el tiempo**. En este caso, distinguimos entre **señales periódicas** y **señales aleatorias**.
+
+<img src="img/perialea.png" title="" alt="" width="446">
+
+#### 2.2.1. Señales periódicas
+
+- Son aquellas que **se repiten de forma idéntica cada cierto intervalo de tiempo** llamado **periodo (T)**.
+- Pueden tener distintas formas de onda: **senoidal, cuadrada, triangular, diente de sierra**, etc.
+- Se caracterizan por su **frecuencia fundamental** \( f = 1/T \).  
+  Si la forma de onda no es senoidal pura, puede descomponerse en la frecuencia fundamental y sus **armónicos** (teorema de Fourier).
+- Son muy utilizadas en comunicaciones, electrónica de potencia y sistemas digitales.
+
+📌 **Ejemplos de señales periódicas**:
+
+- Red eléctrica (50 Hz, senoidal).
+- Señal de reloj en un microprocesador (onda cuadrada).
+- Señal PWM (modulación por ancho de pulso) en control de motores.
+
+#### 2.2.2. Señales aleatorias
+
+- No presentan un patrón de repetición regular.
+- Sus valores cambian de forma **impredecible** en el tiempo.
+- No se pueden caracterizar con un único periodo o frecuencia, sino mediante **propiedades estadísticas** (media, varianza, densidad espectral de potencia).
+- Son inevitables en la práctica, porque siempre existen fuentes de **ruido** en los sistemas electrónicos.
+
+📌 **Ejemplos de señales aleatorias**:
+
+- Ruido térmico en resistencias.
+- Interferencias electromagnéticas.
+- Variaciones impredecibles en una señal de sensores.
+
+#### 2.2.3. Comparativa
+
+| Característica | Señales periódicas                 | Señales aleatorias                      |
+| -------------- | ---------------------------------- | --------------------------------------- |
+| Repetición     | Se repiten cada periodo (T)        | No presentan repetición regular         |
+| Frecuencia     | Definida (fundamental y armónicos) | Indefinida, caracterización estadística |
+| Ejemplos       | Red eléctrica, reloj digital, PWM  | Ruido térmico, interferencias           |
+
+✍️ **Resumen**:  
+
+- Una **señal periódica** se repite con un patrón definido y puede analizarse en frecuencia.  
+- Una **señal aleatoria** es impredecible y se analiza con herramientas estadísticas.
+
+---
+
+### 2.3. Señales en tiempo continuo y discreto
+
+Otra clasificación de las señales se hace en función de cómo se representa la **variable temporal**. Así, distinguimos entre **señales en tiempo continuo** y **señales en tiempo discreto**.
+
+<img src="img/discrcont.png" title="" alt="" width="446">
+
+#### 2.3.1. Señales en tiempo continuo
+
+- Están definidas para **todos los valores del tiempo (t)**.
+- La variable independiente es **continua** → el tiempo puede tomar infinitos valores.
+- Son típicas de sistemas **analógicos**.
+- Se representan mediante funciones matemáticas como \( $x(t)$ \).
+
+📌 **Ejemplos**:
+
+- La tensión en los bornes de una pila.
+- Una señal senoidal de audio \( $x(t) = A \cdot \sin(2 \pi f t)$ \).
+- La salida de un micrófono.
+
+#### 2.3.2. Señales en tiempo discreto
+
+- Están definidas solo en **instantes concretos de tiempo** (muestras).
+- La variable independiente toma **valores discretos** → se numeran como enteros.
+- Se representan como \( $x[n]$ \), donde \( $n$ \) es el número de muestra.
+- Son la base del **procesamiento digital de señales (DSP)**.
+
+📌 **Ejemplos**:
+
+- Una señal de audio muestreada a 44,1 kHz (como en un CD).
+- Las imágenes digitales (matrices de píxeles discretos).
+- Datos de un sensor que se leen cada cierto intervalo de tiempo.
+
+#### 2.3.3. Comparativa
+
+| Característica | Señal en tiempo continuo \(x(t)\) | Señal en tiempo discreto \(x[n]\) |
+| -------------- | --------------------------------- | --------------------------------- |
+| Tiempo         | Continuo (todos los instantes)    | Discreto (muestras)               |
+| Representación | Función matemática                | Secuencia de valores              |
+| Dominio        | Analógico                         | Digital                           |
+| Ejemplo        | Micrófono, termómetro de mercurio | Audio en CD, imágenes digitales   |
+
+✍️ **Resumen**:  
+
+- Una **señal en tiempo continuo** se define en todo instante y corresponde al mundo físico (analógico).  
+- Una **señal en tiempo discreto** se obtiene al **muestrear** la señal continua en instantes separados de tiempo.
+
+---
+
+### 2.4. Señales analógicas y digitales
+
+#### 2.4.1. Señales analógicas
+
+- Varían de manera **continua** en el tiempo.
+- Pueden tomar **infinitos valores** dentro de un rango.
+- Ejemplos:
+  - La voz humana (ondas sonoras).
+  - Temperatura medida con un termómetro de mercurio.
+  - Intensidad de luz captada por un fotodiodo.
+
+![Señal analógica](img/sanalogica.png)
+
+**Características de una señal analógica**
+
+- Se representa mediante una onda **continua**.
+- Puede variar suavemente con el tiempo y tomar infinitos valores.
+- Es más **sensible al ruido**, ya que cualquier pequeña variación afecta a la señal.
+- Ejemplo adicional: señal de audio en un tocadiscos.
+
+#### 2.4.2. Señales digitales
+
+- Varían de forma **discreta**, solo pueden tomar un número finito de valores.
+- En electrónica digital se usan **dos niveles de tensión**:
+  - **0 lógico (LOW)**: normalmente cercano a 0 V.
+  - **1 lógico (HIGH)**: depende de la tecnología (ej. 5 V, 3,3 V).
+- Ejemplos:
+  - Transmisión de datos por un bus de ordenador.
+  - Estados de encendido/apagado en un interruptor.
+
+![Señal digital](img/sdigital.png)
+
+**Características de una señal digital**
+
+- Se representa mediante una onda **discreta** (valores separados).
+- Normalmente solo usa **dos estados**: 0 lógico y 1 lógico.
+- Es más **robusta frente al ruido**, ya que pequeñas variaciones no cambian el estado lógico.
+- Ejemplo adicional: datos en un CD o música en Spotify.
+
+#### 2.4.3. Comparativa entre señal analógica y digital
+
+| Característica   | Analógica                           | Digital                              |
+| ---------------- | ----------------------------------- | ------------------------------------ |
+| Valores posibles | Infinitos                           | Finitos (normalmente 0/1)            |
+| Precisión        | Alta, pero sensible a ruido         | Menos sensible al ruido              |
+| Procesamiento    | Complejo                            | Más sencillo y rápido                |
+| Transmisión      | Pérdida de calidad con la distancia | Puede regenerarse sin perder calidad |
+| Ejemplo          | Señal de audio                      | Señal binaria en un microcontrolador |
+
+#### 2.4.4. Ejemplos de la vida cotidiana
+
+- Música en **vinilo** (analógico) vs. música en **Spotify** (digital).
+- **Reloj de manecillas** (analógico) vs. **reloj digital** (pantalla numérica).
+- **Termómetro de mercurio** (analógico) vs. **sensor digital** (Arduino).
+
+#### 2.4.5. Relación entre ambas
+
+- Todas las señales físicas son **analógicas en origen** (voz, luz, temperatura).
+- Para procesarlas en un ordenador deben convertirse en **digitales** mediante:
+  - **Muestreo**: tomar muestras de la señal en intervalos de tiempo.
+  - **Cuantificación**: asignar un valor discreto a cada muestra.
+  - **Codificación**: transformar cada valor en formato binario.
+- Después, si se quiere reproducir (por ejemplo, audio), la señal se convierte otra vez en **analógica** mediante un **DAC**.
+
+---
+
+## 3. Conversión analógico–digital (A/D).
+
+Los sistemas informáticos y electrónicos digitales solo pueden trabajar con **valores discretos**. Por eso, para procesar una señal analógica (continua) es necesario **convertirla en digital**.  
+Este proceso se realiza mediante un **convertidor analógico–digital (ADC)** y consta de tres fases principales: **muestreo, cuantificación y codificación**.
+
+### 3.1. Muestreo
+
+- Consiste en **tomar muestras** de la señal analógica en instantes de tiempo separados.  
+
+- La frecuencia con la que se toman muestras se llama **frecuencia de muestreo** \( $f_s$ \).  
+
+- Debe cumplir el **teorema de Nyquist**:  
   
-  - Ejemplo: una onda senoidal, cuadrada o triangular.  
-
-- **Señales aleatorias:** no siguen un patrón fijo y son impredecibles.  
+  $f_s \geq 2 \cdot f_{max}$
   
-  - Ejemplo: ruido eléctrico captado por una antena.
+  donde \( f_{max} \) es la máxima frecuencia presente en la señal.  
 
----
+- Si no se cumple, aparece el **aliasing**: distorsión por muestreo insuficiente.
 
-## 4. Amplitud, frecuencia y periodo
+📌 **Ejemplo**:  
 
-- **Amplitud (A):** valor máximo que alcanza la señal.  
-- **Periodo (T):** tiempo que tarda la señal en repetirse.  
-- **Frecuencia (f):** número de repeticiones por segundo.  
-  - Relación: $f = \dfrac{1}{T}$  
+- En un CD de audio, \( $f_s = 44.100 \, Hz$ \) para cubrir hasta 22 kHz de ancho de banda (rango auditivo humano).
 
-Ejemplo:  
-Una señal con $T = 0,01 \, s$ tiene una frecuencia de $f = 100 \, Hz$.
+### 3.2. Cuantificación
 
----
+- Cada muestra obtenida en el muestreo debe aproximarse a un **valor discreto** entre un conjunto finito de niveles posibles.  
 
-## 5. Señales en tiempo continuo y discreto
+- Este proceso se llama **cuantificación**.  
 
-- **Tiempo continuo:** la señal está definida en todos los instantes.  
-  Ejemplo: la salida de un micrófono.  
+- El número de niveles está determinado por el **número de bits (N)** de resolución:  
+  
+  Niveles = $2^N$
 
-- **Tiempo discreto:** la señal solo se define en determinados instantes de tiempo.  
-  Ejemplo: los datos obtenidos al muestrear una señal analógica con un ordenador.
+- El error introducido se llama **error de cuantificación**.
 
----
+📌 **Ejemplo**:  
 
-## 6. Conversión analógico-digital (A/D)
+- Con un ADC de 8 bits → \( $2^8$ = 256 \) niveles posibles.  
+- Con un ADC de 16 bits → \( $2^{16}$ = 65.536 \) niveles posibles (más precisión).
 
-La conversión A/D permite transformar una señal **analógica** (continua) en una **digital** (discreta) para poder ser procesada por un ordenador o microcontrolador.  
-Consta de tres etapas:
+### 3.3. Codificación
 
-1. **Muestreo:** se toman muestras de la señal en intervalos regulares.  
-   
-   - Definido por la **frecuencia de muestreo** ($f_s$).  
-   - Según el **teorema de Nyquist**, $f_s \geq 2 \cdot f_{máx}$ de la señal.  
+- Una vez cuantificados los valores, se representan en **código binario** para que puedan ser procesados por el sistema digital.  
+- Cada muestra se convierte en una **palabra binaria** de N bits.  
+- Ejemplo: con un ADC de 3 bits, los posibles niveles se codifican como:  
+  - 000, 001, 010, …, 111.
 
-2. **Cuantificación:** cada muestra se aproxima a un valor discreto entre un número limitado de niveles.  
+### 3.4. Ejemplo completo
 
-3. **Codificación:** los valores cuantificados se representan en forma binaria.  
-   
-   - Depende de la **resolución del conversor**, expresada en **bits**.  
-   - Un ADC de 8 bits puede representar $2^8 = 256$ niveles.  
+En un sistema de audio digital:  
 
-Ejemplo:  
-Una señal de audio de 20 kHz necesita muestrearse, al menos, a $40 kHz$ para ser digitalizada sin pérdidas.
+1. El micrófono genera una señal analógica (voz).  
+2. El **ADC** muestrea la señal a \( $f_s = 44.100 \, Hz$ \).  
+3. Cada muestra se cuantifica con **16 bits** (65.536 niveles).  
+4. Los valores cuantificados se codifican en binario y se almacenan en un archivo WAV o transmiten como flujo digital.
 
----
+✍️ **Resumen**:  
+El proceso A/D convierte una señal continua en una representación digital mediante:  
 
-## Resumen gráfico
+- **Muestreo** (en el tiempo).  
+- **Cuantificación** (en amplitud).  
+- **Codificación** (en binario).  
 
-- **DC:** valor constante (batería).  
-- **AC periódica:** onda senoidal de la red eléctrica.  
-- **Señal discreta:** valores digitalizados en el tiempo.  
-- **Conversión A/D:** señal analógica → muestreo → cuantificación → código binario.
-
----
+Esto permite que los sistemas informáticos procesen señales analógicas del mundo real.
