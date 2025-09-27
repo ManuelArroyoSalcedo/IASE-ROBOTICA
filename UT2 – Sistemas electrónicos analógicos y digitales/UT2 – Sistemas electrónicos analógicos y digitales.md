@@ -4,11 +4,12 @@
 
 1. Conceptos básicos de señales.
 2. Tipos de señales.
-3. Conversión analógico-digital (A/D).
+3. Señales analógicas y digitales.
+4. Conversión analógico-digital (A/D).
 
 ---
 
-## 1 Conceptos básicos de señales
+## 1. Conceptos básicos de señales
 
 ### 1.1. ¿Qué es una señal?
 
@@ -46,9 +47,11 @@ Las señales periódicas son fundamentales en electrónica y telecomunicaciones.
 Es **una repetición completa del patrón de la señal**.  
 Si eliges un punto característico (p. ej., una cresta) y esperas hasta que **vuelva a aparecer el mismo punto con la misma fase**, eso es **un ciclo**.
 
+![Ciclo de una onda](img/ciclo_onda.png)
+
 ###### <u>Periodo</u> (T)
 
-- Es el **tiempo que tarda la señal en repetirse**.
+- Es el **tiempo que tarda la señal en completar** un ciclo completo.
 - Se mide en segundos (s).
 - Cada ciclo completo de la señal tiene un periodo constante. **En una señal periódica**, la duración de **cada repetición completa** del patrón (cada **ciclo**) es **la misma** y vale **T**.
 
@@ -80,7 +83,7 @@ $f = \frac{1}{T}$
 
 Una señal senoidal puede describirse como:
 
-$v(t) = A \cdot \sin(\omega t + \varphi)$
+$s(t) = A \cdot \sin(\omega t + \varphi)$
 
 Donde:
 
@@ -118,7 +121,7 @@ A continuación, se describen las principales clasificaciones que permiten difer
 **2.1. Señales continuas y alternas.**
 **2.2. Señales periódicas y aleatorias.**
 **2.3. Señales en tiempo continuo y discreto.**
-**2.4. Señales analógicas y digitales.**
+
 
 ### 2.1. Señales continuas y alternas
 
@@ -131,20 +134,14 @@ Las señales eléctricas pueden clasificarse según la **forma en la que varían
 - Es aquella que es **constante** en el tiempo: ( $v(t) = V_{\text{DC}}$ ).
 - Como consecuencia, **mantiene el mismo signo** (no cambia de polaridad).
 - Se representa como una **línea recta** paralela al eje del tiempo.
-- También se denomina **DC pura**.
-
-> **No confundir** con la **señal unipolar (CC pulsante)**: varía en el tiempo pero no cambia de signo.  
-> Puede modelarse como ( $v(t) = V_{\text{DC}} + v_{\text{ac}}(t)$ ) con ( $\overline{v_{\text{ac}}}=0$ ). **No** es DC pura.
 
 📌 **Ejemplos**
 
-- Una pila de 1,5 V → **DC pura** (constante).
-- Una señal que oscila entre 0 y +5 V (p. ej., salida de un sensor analógico) → **unipolar variable (CC pulsante)**; **no** es DC pura.
+- Pilas, baterías o fuentes de alimentación de corriente continua en los circuitos eléctricos.
 
 #### 2.1.2. Señales alternas (AC)
 
-- **Varían periódicamente**. En **AC pura** el valor medio es 0 y **cambia de signo** respecto a 0 V.  
-- La forma de onda más común es la **senoidal**, aunque también puede ser cuadrada, triangular u otras.
+- Es aquella que **varía con el tiempo**. Su **valor medio de tensión es 0 V** y **cambia de signo** (positivo y negativo). La forma de onda más común es la **senoidal**, aunque también puede ser cuadrada, triangular u otras.
 - Están presentes en la red eléctrica y en muchas señales de comunicación.
 - En una señal alterna se definen magnitudes características:
   - **Valor pico (Vp)**: amplitud máxima.
@@ -166,8 +163,8 @@ Las señales eléctricas pueden clasificarse según la **forma en la que varían
 
 ✍️ **Resumen**:  
 
-- **Señal continua (DC pura):** es **constante en el tiempo** ($v(t)=V_{\text{DC}}$). Como consecuencia, **no cambia de signo**. Está presente en pilas y fuentes reguladas.
-- **Señal alterna (AC pura):** **varía periódicamente** con **valor medio 0**; **cambia de signo**. Presente en la **red eléctrica** y en muchas **señales de comunicación**.
+- **Señal continua (DC):** es **constante en el tiempo** ($v(t)=V_{\text{DC}}$). Como consecuencia, **no cambia de signo**. Está presente en pilas y fuentes reguladas.
+- **Señal alterna (AC):** **varía periódicamente** con **valor medio 0**; **cambia de signo**. Presente en la **red eléctrica** y en muchas **señales de comunicación**.
 
 ---
 
@@ -179,10 +176,9 @@ Otra forma de clasificar las señales es según su **regularidad en el tiempo**.
 
 #### 2.2.1. Señales periódicas
 
-- Son aquellas que **se repiten de forma idéntica cada cierto intervalo de tiempo** llamado **periodo (T)**.
+- Son aquellas en las que existe un **patrón completo que se repite en el tiempo** cada cierto intervalo, llamado **periodo (T)**. Ese patrón puede ser sencillo (como una onda senoidal) o más complejo (con distintas formas o amplitudes dentro del ciclo), pero siempre se repite de manera idéntica.
 - Pueden tener distintas formas de onda: **senoidal, cuadrada, triangular, diente de sierra**, etc.
 - Se caracterizan por su **frecuencia fundamental** ( $f = \frac {1}{T} $).  
-  Si la forma de onda no es senoidal pura, puede descomponerse en la frecuencia fundamental y sus **armónicos** (teorema de Fourier).
 - Son muy utilizadas en comunicaciones, electrónica de potencia y sistemas digitales.
 
 📌 **Ejemplos de señales periódicas**:
@@ -207,11 +203,10 @@ Otra forma de clasificar las señales es según su **regularidad en el tiempo**.
 
 #### 2.2.3. Comparativa
 
-| Característica | Señales periódicas                 | Señales aleatorias                      |
-| -------------- | ---------------------------------- | --------------------------------------- |
-| Repetición     | Se repiten cada periodo (T)        | No presentan repetición regular         |
-| Frecuencia     | Definida (fundamental y armónicos) | Indefinida, caracterización estadística |
-| Ejemplos       | Red eléctrica, reloj digital, PWM  | Ruido térmico, interferencias           |
+| Característica | Señales periódicas                | Señales aleatorias              |
+| -------------- | --------------------------------- | ------------------------------- |
+| Repetición     | Se repiten cada periodo (T)       | No presentan repetición regular |
+| Ejemplos       | Red eléctrica, reloj digital, PWM | Ruido térmico, interferencias   |
 
 ✍️ **Resumen**:  
 
@@ -228,23 +223,29 @@ Otra clasificación de las señales se hace en función de cómo se representa l
 
 #### 2.3.1. Señales en tiempo continuo
 
-- Están definidas para **todos los valores del tiempo (t)**.
-- La variable independiente es **continua** → el tiempo puede tomar infinitos valores.
+- Están definidas para **todos los valores del tiempo (t)**. 
+- Esto significa que la señal puede tomar un valor en **cualquier instante de tiempo**, sin saltos entre unos momentos y otros.
 - Son típicas de sistemas **analógicos**.
 - Se representan mediante funciones matemáticas como ( $x(t)$ ).
 
 📌 **Ejemplos**:
 
 - La tensión en los bornes de una pila.
-- Una señal senoidal de audio ( $x(t) = A \cdot \sin(2 \pi f t)$ ).
 - La salida de un micrófono.
 
 #### 2.3.2. Señales en tiempo discreto
 
 - Están definidas solo en **instantes concretos de tiempo** (muestras).
-- La variable independiente toma **valores discretos** → se numeran como enteros.
-- Se representan como ( $x[n]$ ), donde ( $n$ ) es el número de muestra.
-- Son la base del **procesamiento digital de señales (DSP)**.
+
+- Esto significa que la señal no se describe de manera continua, sino únicamente en esos puntos concretos.
+
+- Es como si de la señal continua **solo se tomaran fotos en ciertos momentos** y cada foto se numera con un número entero ($n = 0,1,2,3…$).
+
+- Por eso se representan como $x[n]$, donde $n$ es el número de muestra.
+
+- Entre muestra y muestra la señal **no está definida**, lo que provoca la sensación de “saltos”.
+
+- Son típicas del **procesamiento digital de señales (DSP)**, como el audio en CD o las imágenes digitales.
 
 📌 **Ejemplos**:
 
@@ -268,9 +269,19 @@ Otra clasificación de las señales se hace en función de cómo se representa l
 
 ---
 
-### 2.4. Señales analógicas y digitales
+**Resumen de distintas formas de clasificar las señales** según un criterio:
 
-#### 2.4.1. Señales analógicas
+1. Según cómo varían en el tiempo → **continuas / alternas**.
+
+2. Según su regularidad → **periódicas / aleatorias**.
+
+3. Según la representación temporal → **tiempo continuo / discreto**.
+
+---
+
+## 3. Señales analógicas y digitales
+
+### 3.1. Señales analógicas
 
 - Varían de manera **continua** en el tiempo.
 - Pueden tomar **infinitos valores** dentro de un rango.
@@ -288,7 +299,7 @@ Otra clasificación de las señales se hace en función de cómo se representa l
 - Es más **sensible al ruido**, ya que cualquier pequeña variación afecta a la señal.
 - Ejemplo adicional: señal de audio en un tocadiscos.
 
-#### 2.4.2. Señales digitales
+### 3.2. Señales digitales
 
 - Varían de forma **discreta**, solo pueden tomar un número finito de valores.
 - En electrónica digital se usan **dos niveles de tensión**:
@@ -307,7 +318,7 @@ Otra clasificación de las señales se hace en función de cómo se representa l
 - Es más **robusta frente al ruido**, ya que pequeñas variaciones no cambian el estado lógico.
 - Ejemplo adicional: datos en un CD o música en Spotify.
 
-#### 2.4.3. Comparativa entre señal analógica y digital
+### 3.3. Comparativa entre señal analógica y digital
 
 | Característica   | Analógica                           | Digital                              |
 | ---------------- | ----------------------------------- | ------------------------------------ |
@@ -317,13 +328,13 @@ Otra clasificación de las señales se hace en función de cómo se representa l
 | Transmisión      | Pérdida de calidad con la distancia | Puede regenerarse sin perder calidad |
 | Ejemplo          | Señal de audio                      | Señal binaria en un microcontrolador |
 
-#### 2.4.4. Ejemplos de la vida cotidiana
+### 3.4. Ejemplos de la vida cotidiana
 
 - Música en **vinilo** (analógico) vs. música en **Spotify** (digital).
 - **Reloj de manecillas** (analógico) vs. **reloj digital** (pantalla numérica).
 - **Termómetro de mercurio** (analógico) vs. **sensor digital** (Arduino).
 
-#### 2.4.5. Relación entre ambas
+### 3.5. Relación entre ambas
 
 - Todas las señales físicas son **analógicas en origen** (voz, luz, temperatura).
 - Para procesarlas en un ordenador deben convertirse en **digitales** mediante:
@@ -334,12 +345,12 @@ Otra clasificación de las señales se hace en función de cómo se representa l
 
 ---
 
-## 3. Conversión analógico–digital (A/D).
+## 4. Conversión analógico–digital (A/D).
 
 Los sistemas informáticos y electrónicos digitales solo pueden trabajar con **valores discretos**. Por eso, para procesar una señal analógica (continua) es necesario **convertirla en digital**.  
 Este proceso se realiza mediante un **convertidor analógico–digital (ADC)** y consta de tres fases principales: **muestreo, cuantificación y codificación**.
 
-### 3.1. Muestreo
+### 4.1. Muestreo
 
 - Consiste en **tomar muestras** de la señal analógica en instantes de tiempo separados.  
 
@@ -357,7 +368,7 @@ Este proceso se realiza mediante un **convertidor analógico–digital (ADC)** y
 
 - En un CD de audio, ( $f_s = 44.100 \, Hz$ ) para cubrir hasta 22 kHz de ancho de banda (rango auditivo humano).
 
-### 3.2. Cuantificación
+### 4.2. Cuantificación
 
 - Cada muestra obtenida en el muestreo debe aproximarse a un **valor discreto** entre un conjunto finito de niveles posibles.  
 
@@ -374,14 +385,14 @@ Este proceso se realiza mediante un **convertidor analógico–digital (ADC)** y
 - Con un ADC de 8 bits → ( $2^8$ = 256 ) niveles posibles.  
 - Con un ADC de 16 bits → ( $2^{16}$ = 65.536 ) niveles posibles (más precisión).
 
-### 3.3. Codificación
+### 4.3. Codificación
 
 - Una vez cuantificados los valores, se representan en **código binario** para que puedan ser procesados por el sistema digital.  
 - Cada muestra se convierte en una **palabra binaria** de N bits.  
 - Ejemplo: con un ADC de 3 bits, los posibles niveles se codifican como:  
   - 000, 001, 010, …, 111.
 
-### 3.4. Ejemplo completo
+### 4.4. Ejemplo completo
 
 En un sistema de audio digital:  
 
