@@ -6,6 +6,7 @@
 2. Tipos de señales.
 3. Señales analógicas y digitales.
 4. Conversión analógico-digital (A/D).
+5. Sistemas electrónicos analógicos y digitales.
 
 ---
 
@@ -121,7 +122,6 @@ A continuación, se describen las principales clasificaciones que permiten difer
 **2.1. Señales continuas y alternas.**
 **2.2. Señales periódicas y aleatorias.**
 **2.3. Señales en tiempo continuo y discreto.**
-
 
 ### 2.1. Señales continuas y alternas
 
@@ -409,3 +409,23 @@ El proceso A/D convierte una señal continua en una representación digital medi
 - **Codificación** (en binario).  
 
 Esto permite que los sistemas informáticos procesen señales analógicas del mundo real.
+
+---
+
+## 5. Sistemas electrónicos analógicos y digitales
+
+Un **sistema electrónico** es un conjunto de componentes que procesan señales para realizar una función.
+
+- **Sistemas electrónicos analógicos**: trabajan únicamente con señales analógicas.  
+  *Ejemplo: un amplificador de audio que aumenta la señal de un micrófono.*  
+
+- **Sistemas electrónicos digitales**: trabajan con señales digitales (niveles 0 y 1).  
+  *Ejemplo: un microprocesador que procesa datos en binario.*  
+
+- **Sistemas electrónicos mixtos**: combinan ambos tipos.  
+  
+  - Los **sensores** captan magnitudes físicas (señales analógicas).  
+  - Un **convertidor A/D** transforma esas señales en digitales.  
+  - Un **microcontrolador** las procesa.  
+  - Un **convertidor D/A** devuelve la señal a analógica si hace falta.  
+    *Ejemplo: un teléfono móvil (micrófono → ADC → procesador → DAC → altavoz).*  
