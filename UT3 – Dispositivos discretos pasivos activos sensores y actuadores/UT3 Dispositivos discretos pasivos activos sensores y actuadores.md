@@ -1,20 +1,16 @@
-# UT 3 Dispositivos discretos: pasivos, activos, sensores y actuadores
+# UT 3 Dispositivos discretos: pasivos, activos, sensores y actuadores -  PARTE 1
 
----
 
-Este documento está en proceso de desarrollo.
-
----
 
 ## 1. Introducción a los dispositivos discretos
 
 Un **dispositivo discreto** es un componente electrónico individual con una función específica dentro de un circuito.  
 Se clasifican en cuatro grandes grupos:  
 
-1. **Pasivos**  
-2. **Activos**  
-3. **Sensores**  
-4. **Actuadores**  
+- **Pasivos**  
+- **Activos**  
+- **Sensores**  
+- **Actuadores**  
 
 ---
 
@@ -85,14 +81,32 @@ Las resistencias comerciales pueden tener **3, 4, 5 o 6 bandas**, dependiendo de
 
 ##### Número de bandas en resistencias fijas
 
-| Banda | 3 Bandas             | 4 Bandas         | 5 Bandas         | 6 Bandas                            |
-| -----:| -------------------- | ---------------- | ---------------- | ----------------------------------- |
-| 1ª    | $1.^{er}$ dígito     | $1.^{er}$ dígito | $1.^{er}$ dígito | $1.^{er}$ dígito                    |
-| 2ª    | 2.º dígito           | 2.º dígito       | 2.º dígito       | 2.º dígito                          |
-| 3ª    | Multiplicador        | Multiplicador    | $3.^{er}$ dígito | $3.^{er}$ dígito                    |
-| 4ª    | — (tolerancia ±20 %) | Tolerancia       | Multiplicador    | Multiplicador                       |
-| 5ª    | —                    | —                | Tolerancia       | Tolerancia                          |
-| 6ª    | —                    | —                | —                | Coeficiente de temperatura (ppm/°C) |
+| Banda                | 3 Bandas             | 4 Bandas         | 5 Bandas         | 6 Bandas         |
+| --------------------:| -------------------- | ---------------- | ---------------- | ---------------- |
+| 1ª                   | $1.^{er}$ dígito     | $1.^{er}$ dígito | $1.^{er}$ dígito | $1.^{er}$ dígito |
+| 2ª                   | 2.º dígito           | 2.º dígito       | 2.º dígito       | 2.º dígito       |
+| 3ª                   | Multiplicador        | Multiplicador    | $3.^{er}$ dígito | $3.^{er}$ dígito |
+| 4ª                   | — (tolerancia ±20 %) | Tolerancia       | Multiplicador    | Multiplicador    |
+| 5ª                   | —                    | —                | Tolerancia       | Tolerancia       |
+| 6ª                   | —                    | —                | —                | Coeficiente de   |
+| temperatura (ppm/°C) |                      |                  |                  |                  |
+
+###### 🔹 Tolerancia en las resistencias
+
+La **tolerancia** indica el **margen de error** que puede tener una resistencia respecto a su valor nominal (el que se lee en el cuerpo o en las bandas de colores).
+
+Por ejemplo:
+
+- Una resistencia de **100 Ω ±5 %** puede tener un valor real entre **95 Ω y 105 Ω**.  
+- Una resistencia de **4,7 kΩ ±1 %** puede tener un valor real entre **4,653 kΩ y 4,747 kΩ**.
+
+Cuanto **menor es el porcentaje**, **más precisa** es la resistencia.
+
+En los **kits de electrónica educativos o de iniciación** (como los que se usan con **Arduino** o en prácticas de laboratorio escolar), las resistencias suelen tener una **tolerancia del ±5 %**.
+
+📌 **En resumen:**  
+La tolerancia representa el **margen de error del valor real** respecto al valor teórico.  
+Cuanto **menor** sea la tolerancia, **más exacta** será la resistencia.
 
 ##### Cómo saber cuál es la primera banda
 
@@ -404,6 +418,8 @@ Una bobina (o inductor) es un componente pasivo formado por un hilo conductor en
 
 --- 
 
+<div style="page-break-after: always;"></div>
+
 ## 3. Dispositivos activos
 
 Los dispositivos activos **pueden controlar el paso de la corriente** y requieren una fuente de energía externa para funcionar.
@@ -457,6 +473,8 @@ Su uso principal es como **protección**, evitando daños en el circuito si se i
 - Si la polaridad es correcta, el diodo se encuentra en **polarización directa** (**ánodo → polo positivo** y **cátodo → polo negativo**) y permite el paso de la corriente.
 - Si la polaridad está invertida, el diodo entra en **polarización inversa** (**ánodo → polo negativo** y **cátodo → polo positivo**) y bloquea la corriente, protegiendo así los componentes.
 
+<div style="page-break-after: always;"></div>
+
 ##### En corriente alterna (CA)
 
 En corriente alterna, la tensión cambia de polaridad de manera periódica.  
@@ -482,6 +500,8 @@ Su función será evitar daños en los circuitos cuando exista el riesgo de **co
 De este modo, el diodo bloqueará la corriente en caso de error, protegiendo los componentes del montaje.
 
 --- 
+
+<div style="page-break-after: always;"></div>
 
 ### 3.2. LEDs (Light Emitting Diode)
 
@@ -686,6 +706,8 @@ la **fotocélula** **genera su propia corriente eléctrica** al ser iluminada, g
 
 En otras palabras, los **LDR, fotodiodos y fototransistores** se utilizan como **sensores de luz**, mientras que la **fotocélula** actúa como una **fuente de energía** (un pequeño panel solar).  
 
+<div style="page-break-after: always;"></div>
+
 #### 🔹 Uso práctico de los fotodetectores en circuitos
 
 Los **fotodetectores pueden utilizarse como componentes individuales** (por ejemplo, una **LDR suelta**) o **formando parte de módulos o sensores** que ya incluyen otros elementos electrónicos.
@@ -716,57 +738,16 @@ Estos sensores están formados por un **fotodetector** (normalmente una LDR) jun
 
 👉 En resumen, **en este módulo utilizaremos sensores de iluminación**, que internamente emplean fotodetectores como la **LDR**, pero ya listos para integrarse en los circuitos de robótica.
 
-![](img/sensor_fotoresis.png)
+
 
 ---
 
-### Los siguientes apartados están sin desarrollar
+# CONTINUA EN LA PARTE 2
+
+UT3 Dispositivos discretos pasivos activos sensores y actuadores - Parte 2.md
 
 ---
 
-## 4. Sensores
 
-Un **sensor** convierte una magnitud física en una señal eléctrica.
 
-- **Temperatura:** termistores (NTC, PTC).  
-- **Iluminación:** LDR (resistencia variable según la luz).  
-- **Ultrasonido:** detectan distancias mediante ondas ultrasónicas.  
-- **Presencia:** sensores PIR (detección de movimiento por infrarrojos).  
-
----
-
-## 5. Actuadores
-
-Un **actuador** convierte una señal eléctrica en acción mecánica, sonora o luminosa.
-
-- **Motores DC:** convierten electricidad en movimiento rotativo.  
-- **Servomotores:** permiten control preciso de posición.  
-- **Relés:** interruptores controlados eléctricamente.  
-- **Zumbadores:** generan sonido (pueden ser activos o pasivos).  
-
----
-
-## 6. Montaje, simulación y pruebas
-
-- **Simulación**: uso de software como **Tinkercad** o **Proteus** para diseñar y verificar circuitos antes del montaje real.  
-- **Montaje en protoboard**: construcción de circuitos sin soldadura.  
-- **Instrumentación básica**:
-  - Multímetro (medición de tensión, corriente y resistencia).  
-  - Fuente de alimentación regulada.  
-  - Generador de señales y osciloscopio (para análisis avanzado).  
-
----
-
-## 7. Fallos comunes en circuitos discretos
-
-- **Circuito abierto:** un componente interrumpido o desconectado → no circula corriente.  
-- **Cortocircuito:** conexión directa entre dos puntos → exceso de corriente que puede dañar los componentes.  
-
----
-
-📌 **Resumen:**  
-En esta unidad hemos visto los principales dispositivos discretos, sus características, aplicaciones y cómo se integran en circuitos electrónicos. Estos conocimientos son la base para el diseño, simulación y montaje de sistemas electrónicos más complejos.  
-
----
-
-© Apuntes de **Informática aplicada a sistemas electrónicos (Robótica)** – UT3  
+© Apuntes de **Informática aplicada a sistemas electrónicos (Robótica)** – UT3
