@@ -114,9 +114,11 @@ Este cambio puede transformarse en una **variación de tensión** si se conecta 
 
 El método más habitual para obtener una señal eléctrica proporcional a la temperatura es mediante un **divisor de tensión**:
 
-($V_{cc}$) ── $R_{fijo}$ ──●── $NTC$ ── ($GND$)
-                                │
-                            $V_{out}$
+```text
+(VCC) ── [R fijo] ──●── [NTC] ── (GND)
+                     │
+                     └── Vout
+```
 
 ##### 4.1.2.2. Otros elementos electrónicos sensibles a la temperatura
 
@@ -390,8 +392,9 @@ Existen dos formas básicas para la conexión de nuestra LDR, pueden ser utiliza
 
 1. ***Pull-up* o  Mayor luz, mayor voltaje**: Al conectar la fotoresistencia al nodo positivo de nuestra fuente de voltaje tendremos que, al incidir una mayor cantidad de luz provocará una menor caída de voltaje o diferencial de potencial entre la fuente y el pin de referencia (Vout), por lo tanto se tendrá una lectura mayor.
    ![](img/fotosensor_conex_maymay.jpg)
-2. ***Pull-down* o Mayor luz, menor voltaje**: En pocas palabras la fotoresistencia se conecta al nodo de GND y provocará un comportamiento opuesto al punto 1.
-   <br>
+
+2. ***Pull-down* o Mayor luz, menor voltaje**: En pocas palabras la fotoresistencia se conecta al nodo de GND y provocará un comportamiento opuesto al punto 1.<br>
+
    ![](img/fotosensor_conex_maymen.jpg)
 
 Se puede sustituir el resistor por un potenciómetro si vamos a cambiar de un estado a otro, por lo tanto la iluminación va a variar, con esto evitamos modificar el código de programación.
@@ -487,9 +490,15 @@ Sin embargo, la **forma de conexión es diferente**, porque el **fotodiodo debe 
 
 - El **punto medio** (entre el cátodo y la resistencia) → a una **entrada analógica (A0)** del microcontrolador
 
+
+
+```text
 +5V ──[R]──┬──►|── GND
-                        │
-                        └──→ A0 (señal)
+           │
+           └──→ A0 (señal)
+```
+
+
 
 *(El símbolo ►| representa el fotodiodo polarizado en inverso.)*
 
@@ -721,9 +730,11 @@ Un **fototransistor suelto** se conecta de forma similar a un transistor NPN, au
 
 - **Punto intermedio (entre el colector y la resistencia)** → a una **entrada analógica (A0)** o **digital (D0)** del microcontrolador.
 
+```text
 +5V ──[R]──┬──┤>── GND
-                        │
-                        └──→ A0 (señal)
+           │
+           └──→ A0 (señal)
+```
 
 *(El símbolo ┤> representa el fototransistor.)*
 
