@@ -2,7 +2,17 @@
 
 ---
 
-Este documento está en proceso de desarrollo.
+*En este documento se desarrolla la **Parte 2** de los apuntes, dedicada a los **sensores**.*
+
+--- 
+
+## 📑 Índice de contenidos
+
+- [4 Sensores](#4-Sensores)
+- [4.1 Sensores de temperatura](#41-sensores-de-temperatura)
+- [4.2 Sensores de luz](#42-sensores-de-luz)
+- [4.3 Sensores de sonido](#43-sensores-de-sonido)
+- [4.4 Sensores de presencia y movimiento](#44-sensores-de-presencia-y-movimiento)
 
 ---
 
@@ -11,10 +21,10 @@ Este documento está en proceso de desarrollo.
 Un **dispositivo discreto** es un componente electrónico individual con una función específica dentro de un circuito.  
 Se clasifican en cuatro grandes grupos:  
 
-- **Pasivos**  
-- **Activos**  
-- **Sensores**  
-- **Actuadores**  
+- Pasivos  
+- Activos  
+- **👉 Sensores**  
+- Actuadores
 
 ---
 
@@ -37,13 +47,15 @@ Los sensores se pueden clasificar de muchas maneras, pero una de las más práct
 
 - **Iluminación:** LDR (resistencia variable según la luz).
 
-- **Ultrasonido:** detectan distancias mediante ondas ultrasónicas.
+- **Sonido:** detectan distancias mediante ondas de sonido.
 
 - **Presencia o movimiento:** sensores PIR (detección por infrarrojos).
 
 👉 En los próximos apartados se estudiarán sus **principios de funcionamiento**, **formas de conexión** y **aplicaciones prácticas** en montajes con microcontroladores.
 
 ### 4.1. Sensores de temperatura
+
+[⬅️ Bloque anterior](#4-sensores) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#42-sensores-de-luz)
 
 #### 4.1.1. Concepto general de sensor de temperatura
 
@@ -290,6 +302,8 @@ Los sensores de temperatura se emplean en múltiples tareas:
 
 ### 4.2. Sensores de luz
 
+[⬅️ Bloque anterior](#4-sensores) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#42-sensores-de-temperatura)
+
 #### 4.2.1. Introducción
 
 Un **sensor de luz** es un dispositivo capaz de **detectar la cantidad de luz presente en el entorno** y transformarla en una **señal eléctrica** que puede ser interpretada por un circuito o un microcontrolador.
@@ -374,9 +388,9 @@ En la oscuridad ocurre lo contrario: los electrones quedan menos excitados y la 
 
 Existen dos formas básicas para la conexión de nuestra LDR, pueden ser utilizadas dependiendo del fin deseado. Si disponemos de un controlador es posible modificar los resultados mediante programación.
 
-1. **Mayor luz, mayor voltaje**: Al conectar la fotoresistencia al nodo positivo de nuestra fuente de voltaje tendremos que, al incidir una mayor cantidad de luz provocará una menor caída de voltaje o diferencial de potencial entre la fuente y el pin de referencia (Vout), por lo tanto se tendrá una lectura mayor.
+1. ***Pull-up* o  Mayor luz, mayor voltaje**: Al conectar la fotoresistencia al nodo positivo de nuestra fuente de voltaje tendremos que, al incidir una mayor cantidad de luz provocará una menor caída de voltaje o diferencial de potencial entre la fuente y el pin de referencia (Vout), por lo tanto se tendrá una lectura mayor.
    ![](img/fotosensor_conex_maymay.jpg)
-2. **Mayor luz, menor voltaje**: En pocas palabras la fotoresistencia se conecta al nodo de GND y provocará un comportamiento opuesto al punto 1.
+2. ***Pull-down* o Mayor luz, menor voltaje**: En pocas palabras la fotoresistencia se conecta al nodo de GND y provocará un comportamiento opuesto al punto 1.
    ![](img/fotosensor_conex_maymen.jpg)
 
 Se puede sustituir el resistor por un potenciómetro si vamos a cambiar de un estado a otro, por lo tanto la iluminación va a variar, con esto evitamos modificar el código de programación.
@@ -400,6 +414,11 @@ Suelen tener **tres pines**:
 
 👉 Cuando la luz es intensa, el módulo puede enviar una señal diferente a cuando hay oscuridad.  
 Así, por ejemplo, se puede usar para **encender luces automáticamente por la noche** o **detectar la dirección de una fuente de luz en un robot**.
+
+📙 **Nota medioambiental**
+
+Muchas **fotoresistencias (LDR)** tradicionales están fabricadas con **sulfuro de cadmio (CdS)**, un material que contiene **cadmio**, elemento tóxico y restringido por la **Directiva RoHS** de la Unión Europea.  
+Por eso, cada vez se utilizan más **sensores de luz alternativos**, como los **TEMT6000**, **TSL2561** o **TSL2591**, que ofrecen **mayor precisión** y son **respetuosos con el medio ambiente**.
 
 #### **4.2.3. Fotodiodos**
 
@@ -608,6 +627,12 @@ Utilizan un **LED emisor infrarrojo** y un **fotodiodo receptor**, o en algunos 
 > En la práctica, ambos funcionan de forma similar: detectan la presencia o ausencia de luz infrarroja.  
 > El fototransistor ofrece una señal más intensa, por eso se usa con mayor frecuencia en detección de objetos o barreras.
 
+📙 **Rechazo de luz ambiente en sensores IR**
+
+Los **sensores infrarrojos (IR)** están diseñados para funcionar incluso en entornos con luz solar o artificial intensa.  
+Para evitar detecciones falsas, muchos módulos IR **modulan la señal del LED emisor**, encendiéndolo y apagándolo unas **38 000 veces por segundo (38 kHz)**.  
+El **receptor solo responde a esa frecuencia específica**, por lo que **ignora la luz constante del entorno** y únicamente detecta la señal procedente del emisor del propio sensor o del mando a distancia.
+
 ---
 
 ##### 🔹 **3. Sensores biomédicos**
@@ -787,14 +812,341 @@ Aunque externamente se parezcan a los módulos con fotodiodo, su **salida es má
 > Se utiliza en **módulos de detección de obstáculos, barreras, receptores IR y sensores de línea**,  
 > donde la finalidad no es medir la intensidad de la luz, sino **detectar su presencia o variación**.
 
+--- 
 
+📘 **Parámetros característicos de los sensores de luz**
+
+Cuando se consulta la **hoja de datos** (*datasheet*) de un sensor óptico, se pueden encontrar algunos **parámetros técnicos** que ayudan a comprender su comportamiento y a elegir el más adecuado según la aplicación:
+
+- **Respuesta espectral:** indica a qué tipo de luz responde mejor el sensor (luz visible, infrarroja o ultravioleta).
+
+- **Ángulo de visión (FOV – Field of View):** determina el área desde la que el sensor puede captar la luz. Un ángulo estrecho concentra la detección en una zona pequeña; uno amplio permite captar más entorno.
+
+- **Sensibilidad:** mide la cantidad de señal que genera el sensor para una determinada cantidad de luz. Cuanta mayor sensibilidad, más capaz es de detectar pequeñas variaciones de iluminación.
+
+- **Corriente oscura:** es la pequeña corriente que produce el sensor incluso en completa oscuridad. Representa un valor de error o “ruido” del dispositivo.
+
+- **Rango dinámico:** indica el intervalo de iluminación que el sensor puede medir correctamente sin saturarse ni perder precisión.
+
+📙 **En resumen:**
+
+> Estos parámetros permiten comparar distintos sensores de luz y comprender mejor su comportamiento en condiciones reales, ayudando a seleccionar el más adecuado para cada tipo de proyecto o entorno.
+
+--- 
+
+⏱️ **Tiempo de respuesta y usos**
+
+Las **LDR** responden **lentas** (≈ decenas – centenas de milisegundos), por eso se emplean para **medir luz ambiental** o ajustar el **brillo** en sistemas donde los cambios son progresivos.  
+En cambio, los **fotodiodos** y **fototransistores** reaccionan **mucho más rápido** (microsegundos – milisegundos), lo que los hace ideales para **detección de objetos**, **contadores ópticos**, **barreras IR** o **seguimiento de líneas** en robótica.
+
+| Sensor                    | Tipo de señal       | Tiempo de respuesta típico | Aplicaciones más adecuadas                                     |
+| ------------------------- | ------------------- | -------------------------- | -------------------------------------------------------------- |
+| **LDR (fotoresistencia)** | Analógica           | 10 – 500 ms (lento)        | Luz ambiental, encendido automático, brillo de pantallas.      |
+| **Fotodiodo**             | Analógica o digital | < 1 µs (muy rápido)        | Contadores ópticos, recepción IR, comunicaciones ópticas.      |
+| **Fototransistor**        | Analógica o digital | 1 – 50 µs (rápido)         | Barreras de luz, detección de obstáculos, seguidores de línea. |
+
+📘 **Conclusión:**
+
+> El **tiempo de respuesta** determina la rapidez con la que el sensor puede reaccionar a los cambios de luz.  
+> Cuanto menor sea este tiempo, **mayor velocidad de detección**, aunque también aumenta la **complejidad del circuito**.
+
+---
+
+### 4.3. Sensores de sonido
+
+[⬅️ Bloque anterior](#43-sensores-de-luz) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#44-sensores-de-presencia-o-movimiento)
+
+#### 4.3.1 Introducción
+
+El **sonido** es una **vibración mecánica** que se propaga a través de un **medio material** (como el aire, el agua o un sólido) en forma de **ondas longitudinales**.  
+Estas ondas producen variaciones de presión que el oído humano puede percibir cuando su **frecuencia** se encuentra dentro del rango audible.
+
+📘 **Características básicas de una onda sonora:**
+
+- **Frecuencia (Hz):** número de vibraciones por segundo. Determina el **tono** del sonido (grave o agudo).
+
+- **Amplitud:** representa la **intensidad** o volumen del sonido.
+
+- **Longitud de onda (λ):** distancia entre dos puntos equivalentes de la onda.
+
+- **Velocidad de propagación:** depende del medio; por ejemplo, en el aire a temperatura ambiente es aproximadamente **343 m/s**.
+
+> 🔹 **Ejemplo:** al hablar o aplaudir, las cuerdas vocales o las palmas generan vibraciones que viajan por el aire en forma de ondas sonoras, y un micrófono puede transformarlas en una señal eléctrica.
+
+📗 **Tipos de ondas sonoras según su frecuencia**
+
+| Tipo de sonido     | Frecuencia aproximada | Perceptible por el oído humano | Ejemplos de aplicación                                     |
+| ------------------ | --------------------- | ------------------------------ | ---------------------------------------------------------- |
+| **Infrasonido**    | < 20 Hz               | ❌ No audible                   | Medición sísmica, detección industrial.                    |
+| **Sonido audible** | 20 Hz – 20 kHz        | ✅ Sí audible                   | Voz, música, ruido ambiental.                              |
+| **Ultrasonido**    | > 20 kHz              | ❌ No audible                   | Ecografía, medición de distancia, detección de obstáculos. |
+
+📙 **Diferencia entre sonido audible y ultrasonido**
+
+- El **sonido audible** se utiliza en sensores que **captan vibraciones o ruidos** (micrófonos, módulos KY-037 o KY-038).
+
+- El **ultrasonido**, en cambio, se emplea en sensores que **emiten y reciben ondas de alta frecuencia** para **medir distancias o detectar objetos** (como el módulo **HC-SR04**).
+
+📘 **En resumen:**
+
+> Todos los sensores acústicos trabajan con ondas sonoras,  
+> pero los sensores de **sonido** detectan **ruido o voz**,  
+> mientras que los de **ultrasonido** utilizan frecuencias más altas para **medir o localizar** objetos.
+
+#### 4.3.2 Sensores de sonido
+
+![](img/modulo_sonido37.jpg)
+
+Los **sensores de sonido** son dispositivos capaces de **detectar las vibraciones del aire producidas por un ruido, una voz o un aplauso** y transformarlas en una **señal eléctrica** que puede ser interpretada por un microcontrolador.
+
+El elemento principal de estos sensores es un **micrófono**, que actúa como **transductor acústico**: convierte las ondas sonoras en pequeñas variaciones de voltaje.
+
+##### 📘 **Principio de funcionamiento**
+
+El **micrófono electret**, presente en la mayoría de módulos de sonido educativos (como los **KY-037** y **KY-038**), está formado por una **membrana metálica flexible** y una **capa cargada eléctricamente** (electret).  
+Cuando una onda sonora incide sobre la membrana, esta **vibra**, produciendo **variaciones de presión** que se transforman en una **señal eléctrica proporcional** a la intensidad del sonido.
+
+Sin embargo, la señal generada por el micrófono es **muy débil**, por lo que el módulo incluye un **amplificador operacional** (normalmente un **LM393** o un **LM358**) que incrementa la amplitud de la señal antes de enviarla al microcontrolador.
+
+##### 📗 **Tipos de salida**
+
+Los módulos de sonido suelen ofrecer **dos salidas**: una **analógica (A0)** y otra **digital (D0)**.
+
+| Tipo de salida     | Descripción                                                                                     | Uso principal                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **A0 (analógica)** | Entrega un voltaje proporcional a la intensidad del sonido detectado.                           | Medir el nivel de ruido o analizar la forma de la onda.   |
+| **D0 (digital)**   | Genera un valor 1 o 0 según si el sonido supera un **umbral ajustable** mediante potenciómetro. | Detectar eventos sonoros como aplausos, golpes o alarmas. |
+
+📙 **Nota:**  
+El **potenciómetro** del módulo permite **ajustar la sensibilidad**, es decir, el nivel de sonido a partir del cual se activa la salida digital.
+
+##### 📘 **Conexión típica**
+
+Los módulos **KY-037** y **KY-038** se conectan de forma muy sencilla a una placa Arduino o similar:
+
+| Pin     | Función          | Descripción                               |
+| ------- | ---------------- | ----------------------------------------- |
+| **VCC** | Alimentación     | 3,3 V o 5 V según el módulo.              |
+| **GND** | Tierra           | Referencia común del circuito.            |
+| **A0**  | Salida analógica | Voltaje proporcional al nivel sonoro.     |
+| **D0**  | Salida digital   | Estado 1 o 0 según el umbral configurado. |
+
+---
+
+##### 📗 **Funcionamiento básico**
+
+1. El micrófono capta las vibraciones del aire (voz, aplauso, ruido).
+
+2. El amplificador interno convierte esas variaciones en una señal de mayor amplitud.
+
+3. Si el nivel de sonido supera el valor configurado, el comparador activa la **salida digital (D0)**.
+
+4. El microcontrolador puede reaccionar encendiendo un LED, registrando el evento o ejecutando una acción.
+
+---
+
+##### 📙 **Ejemplo de aplicación**
+
+- **Encendido de luces o sistemas por aplauso.**
+
+- **Medición del nivel de ruido ambiental.**
+
+- **Activación de alarmas o grabadoras de voz.**
+
+- **Detección de sonido en robots o sistemas interactivos.**
+
+---
+
+##### 📒 **Ventajas**
+
+- Muy fácil de utilizar con placas Arduino.
+
+- Permite ajustar la sensibilidad mediante potenciómetro.
+
+- Disponible en la mayoría de kits educativos.
+
+- Detecta una amplia gama de sonidos audibles.
+
+##### 📕 **Limitaciones**
+
+- No distingue tipos de sonido (solo mide nivel o presencia).
+
+- Sensible al ruido ambiental y a vibraciones.
+
+- La salida analógica puede variar con la temperatura o la fuente de alimentación.
+
+---
+
+📘 **En resumen:**
+
+> Los **sensores de sonido** convierten las **vibraciones del aire** en señales eléctricas.  
+> Son útiles para **detectar ruidos, golpes o aplausos**, y permiten crear sistemas que **reaccionan ante el sonido**, aunque no puedan identificarlo.
+
+### 4.3.3 Sensores de ultrasonido
+
+![](img/ultrasonido.jpg)
+
+#### 📘 Qué son los ultrasonidos
+
+Los **ultrasonidos** son **ondas sonoras de frecuencia superior a 20 kHz**, es decir, **más allá del límite audible por el ser humano**.  
+Aunque no podamos oírlas, se comportan igual que cualquier otra onda sonora: se **propagan por el aire u otros medios** y pueden **reflejarse al chocar contra un objeto**.
+
+Estas propiedades los hacen muy útiles para medir distancias, detectar obstáculos o analizar materiales sin necesidad de contacto físico.
+
+📗 **Características principales de las ondas ultrasónicas:**
+
+- **Frecuencia:** mayor de 20 000 Hz.
+
+- **Velocidad de propagación:** depende del medio (en el aire ≈ 343 m/s a 20 °C).
+
+- **Reflexión:** al encontrarse con un objeto, parte de la onda rebota (eco).
+
+- **Direccionalidad:** el haz ultrasónico es estrecho, lo que permite medir con precisión una zona concreta.
+
+---
+
+#### ⚙️ Principio de funcionamiento
+
+El **sensor de ultrasonido** trabaja según el **principio del eco** o del **tiempo de vuelo (Time of Flight)**.
+
+1. El sensor **emite un pulso ultrasónico** a través de un **transductor emisor**.
+
+2. Este pulso **viaja por el aire** hasta que **rebota en un objeto**.
+
+3. El **transductor receptor** detecta el eco reflejado.
+
+4. El sistema mide el **tiempo transcurrido** entre la emisión y la recepción.
+
+5. Como se conoce la **velocidad del sonido**, es posible calcular la **distancia** al objeto.
+
+📘 **Concepto clave:**  
+Cuanto **más tiempo tarda** en volver el eco, **más lejos** está el objeto.  
+Si el tiempo es corto, el objeto está **más cerca**.
+
+
+
+##### 🔹 Estructura del sensor de ultrasonido
+
+El módulo más utilizado en proyectos de robótica educativa es el **HC-SR04**, formado por **dos transductores** muy parecidos a pequeños micrófonos:
+
+- **Emisor (Trigger):** genera el pulso ultrasónico de alta frecuencia.
+
+- **Receptor (Echo):** capta la onda reflejada por los objetos.
+
+Ambos están sincronizados por un circuito electrónico que controla la emisión, mide el tiempo y genera una señal eléctrica proporcional a la distancia detectada.
+
+📗 **Pines del módulo HC-SR04:**
+
+| Pin      | Nombre              | Función                                                 |
+| -------- | ------------------- | ------------------------------------------------------- |
+| **VCC**  | Alimentación (5 V)  | Proporciona energía al sensor.                          |
+| **TRIG** | Disparo (*Trigger*) | Entrada que inicia la emisión del pulso ultrasónico.    |
+| **ECHO** | Eco (*Echo*)        | Salida que indica el tiempo que tarda el eco en volver. |
+| **GND**  | Tierra              | Referencia común del circuito.                          |
+
+#### 📙 Medición de la distancia
+
+Durante el funcionamiento:
+
+- El circuito del sensor emite un **breve tren de ondas** (normalmente 8 pulsos de 40 kHz).
+
+- La onda se **propaga por el aire** y rebota en los objetos cercanos.
+
+- El sensor mide el **tiempo total de viaje (ida y vuelta)** del pulso.
+
+- Dividiendo ese tiempo entre dos (porque la onda va y vuelve) y multiplicando por la **velocidad del sonido**, se obtiene la **distancia real**.
+
+Distancia=2velocidad del sonido×tiempo​
+
+📘 *Ejemplo conceptual:*  
+Si el eco tarda 10 ms en volver, la distancia será:
+
+2343m/s×0,010s​≈1,7m
+
+
+
+##### 🔸 Factores que afectan a la medición
+
+- **Temperatura y humedad:** modifican la velocidad del sonido y, por tanto, la precisión.
+
+- **Superficies blandas o irregulares:** absorben o dispersan las ondas, reduciendo la intensidad del eco.
+
+- **Ángulo de incidencia:** si el objeto no está perpendicular al haz, la señal reflejada puede no regresar al receptor.
+
+- **Interferencias:** varios sensores cercanos pueden confundirse si emiten al mismo tiempo.
+
+
+
+#### 📗 Características típicas del HC-SR04
+
+| Parámetro               | Valor aproximado |
+| ----------------------- | ---------------- |
+| Frecuencia de trabajo   | 40 kHz           |
+| Rango de medida         | 2 cm – 400 cm    |
+| Precisión               | ± 3 mm           |
+| Ángulo de detección     | ~15°             |
+| Tensión de alimentación | 5 V              |
+| Corriente típica        | 15 mA            |
+
+
+
+#### 🤖 Aplicaciones
+
+Los sensores ultrasónicos son muy usados en **robótica y automatización**, ya que permiten **detectar objetos sin contacto físico**:
+
+- Detección de **obstáculos** en robots móviles o vehículos autónomos.
+
+- **Sistemas de aparcamiento asistido**.
+
+- **Medición de nivel** de líquidos o sólidos en depósitos.
+
+- **Control de proximidad** o activación automática.
+
+- Detección de **personas u objetos** en zonas delimitadas.
+
+
+
+#### 📒 Ventajas
+
+- **Medición sin contacto físico**, ideal para entornos húmedos o sucios.
+
+- **Buena precisión** para rangos de hasta varios metros.
+
+- **Económico y fácil de integrar** en proyectos educativos.
+
+- **Inmune a la iluminación ambiental**, a diferencia de los sensores ópticos.
+
+- **Alta fiabilidad** en objetos de tamaño medio o grande.
+
+
+
+#### 📕 Limitaciones
+
+- **No detecta bien materiales blandos o absorbentes** (espuma, tela, corcho, etc.).
+
+- **Sensibilidad a la temperatura y humedad**, que alteran la velocidad del sonido.
+
+- **Ángulo de detección reducido** (≈ 15°).
+
+- **Dificultad para detectar objetos muy pequeños o inclinados**.
+
+- **Posibles interferencias** si varios sensores emiten al mismo tiempo.
+
+
+
+#### 📘 En resumen
+
+> Los **sensores de ultrasonido** utilizan **ondas sonoras de alta frecuencia** para medir distancias basándose en el **tiempo que tarda el eco en regresar**.  
+> Son precisos, económicos y muy utilizados en proyectos de **robótica educativa**, donde permiten que los sistemas **“vean” sin necesidad de contacto físico**.
+
+### 4.4. Sensores de presencia o movimiento
+
+[⬅️ Bloque anterior](#43-sensores-de-sonido) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#4-sensores)
 
 --- 
 
 CONTIUARÁ.....
 
 ---
-
-
 
 © Apuntes de **Informática aplicada a sistemas electrónicos (Robótica)** – UT3  
