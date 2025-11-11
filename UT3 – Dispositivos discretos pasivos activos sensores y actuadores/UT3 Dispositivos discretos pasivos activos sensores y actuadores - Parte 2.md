@@ -116,7 +116,7 @@ El método más habitual para obtener una señal eléctrica proporcional a la te
 
 ($V_{cc}$) ── $R_{fijo}$ ──●── $NTC$ ── ($GND$)
                                 │
-                            $ V_{out}$
+                            $V_{out}$
 
 ##### 4.1.2.2. Otros elementos electrónicos sensibles a la temperatura
 
@@ -391,6 +391,7 @@ Existen dos formas básicas para la conexión de nuestra LDR, pueden ser utiliza
 1. ***Pull-up* o  Mayor luz, mayor voltaje**: Al conectar la fotoresistencia al nodo positivo de nuestra fuente de voltaje tendremos que, al incidir una mayor cantidad de luz provocará una menor caída de voltaje o diferencial de potencial entre la fuente y el pin de referencia (Vout), por lo tanto se tendrá una lectura mayor.
    ![](img/fotosensor_conex_maymay.jpg)
 2. ***Pull-down* o Mayor luz, menor voltaje**: En pocas palabras la fotoresistencia se conecta al nodo de GND y provocará un comportamiento opuesto al punto 1.
+   <br>
    ![](img/fotosensor_conex_maymen.jpg)
 
 Se puede sustituir el resistor por un potenciómetro si vamos a cambiar de un estado a otro, por lo tanto la iluminación va a variar, con esto evitamos modificar el código de programación.
@@ -1023,8 +1024,6 @@ El **sensor de ultrasonido** trabaja según el **principio del eco** o del **tie
 Cuanto **más tiempo tarda** en volver el eco, **más lejos** está el objeto.  
 Si el tiempo es corto, el objeto está **más cerca**.
 
-
-
 ##### 🔹 Estructura del sensor de ultrasonido
 
 El módulo más utilizado en proyectos de robótica educativa es el **HC-SR04**, formado por **dos transductores** muy parecidos a pequeños micrófonos:
@@ -1063,8 +1062,6 @@ Si el eco tarda 10 ms en volver, la distancia será:
 
 2343m/s×0,010s​≈1,7m
 
-
-
 ##### 🔸 Factores que afectan a la medición
 
 - **Temperatura y humedad:** modifican la velocidad del sonido y, por tanto, la precisión.
@@ -1074,8 +1071,6 @@ Si el eco tarda 10 ms en volver, la distancia será:
 - **Ángulo de incidencia:** si el objeto no está perpendicular al haz, la señal reflejada puede no regresar al receptor.
 
 - **Interferencias:** varios sensores cercanos pueden confundirse si emiten al mismo tiempo.
-
-
 
 #### 📗 Características típicas del HC-SR04
 
@@ -1087,8 +1082,6 @@ Si el eco tarda 10 ms en volver, la distancia será:
 | Ángulo de detección     | ~15°             |
 | Tensión de alimentación | 5 V              |
 | Corriente típica        | 15 mA            |
-
-
 
 #### 🤖 Aplicaciones
 
@@ -1104,8 +1097,6 @@ Los sensores ultrasónicos son muy usados en **robótica y automatización**, ya
 
 - Detección de **personas u objetos** en zonas delimitadas.
 
-
-
 #### 📒 Ventajas
 
 - **Medición sin contacto físico**, ideal para entornos húmedos o sucios.
@@ -1118,8 +1109,6 @@ Los sensores ultrasónicos son muy usados en **robótica y automatización**, ya
 
 - **Alta fiabilidad** en objetos de tamaño medio o grande.
 
-
-
 #### 📕 Limitaciones
 
 - **No detecta bien materiales blandos o absorbentes** (espuma, tela, corcho, etc.).
@@ -1131,8 +1120,6 @@ Los sensores ultrasónicos son muy usados en **robótica y automatización**, ya
 - **Dificultad para detectar objetos muy pequeños o inclinados**.
 
 - **Posibles interferencias** si varios sensores emiten al mismo tiempo.
-
-
 
 #### 📘 En resumen
 
