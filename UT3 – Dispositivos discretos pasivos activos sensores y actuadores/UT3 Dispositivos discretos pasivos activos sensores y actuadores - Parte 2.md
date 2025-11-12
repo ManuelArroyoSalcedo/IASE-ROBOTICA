@@ -394,7 +394,7 @@ Existen dos formas básicas para la conexión de nuestra LDR, pueden ser utiliza
    ![](img/fotosensor_conex_maymay.jpg)
 
 2. ***Pull-down* o Mayor luz, menor voltaje**: En pocas palabras la fotoresistencia se conecta al nodo de GND y provocará un comportamiento opuesto al punto 1.<br>
-
+   
    ![](img/fotosensor_conex_maymen.jpg)
 
 Se puede sustituir el resistor por un potenciómetro si vamos a cambiar de un estado a otro, por lo tanto la iluminación va a variar, con esto evitamos modificar el código de programación.
@@ -490,15 +490,11 @@ Sin embargo, la **forma de conexión es diferente**, porque el **fotodiodo debe 
 
 - El **punto medio** (entre el cátodo y la resistencia) → a una **entrada analógica (A0)** del microcontrolador
 
-
-
 ```text
 +5V ──[R]──┬──►|── GND
            │
            └──→ A0 (señal)
 ```
-
-
 
 *(El símbolo ►| representa el fotodiodo polarizado en inverso.)*
 
@@ -994,7 +990,7 @@ Los módulos **KY-037** y **KY-038** se conectan de forma muy sencilla a una pla
 > Los **sensores de sonido** convierten las **vibraciones del aire** en señales eléctricas.  
 > Son útiles para **detectar ruidos, golpes o aplausos**, y permiten crear sistemas que **reaccionan ante el sonido**, aunque no puedan identificarlo.
 
-### 4.3.3 Sensores de ultrasonido
+#### 4.3.3 Sensores de ultrasonido
 
 ![](img/ultrasonido.jpg)
 
@@ -1066,8 +1062,11 @@ Durante el funcionamiento:
 
 - Dividiendo ese tiempo entre dos (porque la onda va y vuelve) y multiplicando por la **velocidad del sonido**, se obtiene la **distancia real**.
 
-Distancia=2velocidad del sonido×tiempo​
+<br>
 
+> #### $Distancia=\frac{velocidad del sonido \times tiempo}{2}$
+
+<br>
 📘 *Ejemplo conceptual:*  
 Si el eco tarda 10 ms en volver, la distancia será:
 
@@ -1141,10 +1140,199 @@ Los sensores ultrasónicos son muy usados en **robótica y automatización**, ya
 
 [⬅️ Bloque anterior](#43-sensores-de-sonido) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#4-sensores)
 
---- 
+#### 4.4.1 Introducción
 
-CONTIUARÁ.....
+Los **sensores de presencia o movimiento** detectan la **presencia de personas, animales u objetos en movimiento** dentro de un área determinada.  
+Transforman ese cambio en una **señal eléctrica** que puede utilizarse para **activar luces, alarmas, robots o sistemas automáticos**.
 
----
+Estos sensores no se limitan a detectar contacto físico, sino que **analizan variaciones en el entorno**, como radiación infrarroja, ondas ultrasónicas o microondas.
+
+📘 **Tipos principales de sensores de presencia o movimiento:**
+
+| Tipo de sensor           | Principio de detección                      | Ejemplo de módulo  | Aplicaciones típicas                       |
+| ------------------------ | ------------------------------------------- | ------------------ | ------------------------------------------ |
+| **PIR**                  | Cambios en radiación infrarroja térmica     | KY- PIR / HC-SR501 | Iluminación automática, alarmas, domótica  |
+| **Ultrasonido**          | Reflexión de ondas sonoras                  | HC-SR04            | Robótica, detección de obstáculos          |
+| **Microondas (Doppler)** | Variación de frecuencia de ondas reflejadas | RCWL-0516          | Sistemas de seguridad, apertura automática |
+
+#### 4.4.2 Sensores PIR (Infrarrojos Pasivos)
+
+![](img/sensor-movimiento-pir.jpg)
+
+Los **sensores PIR (Passive InfraRed)** detectan **cambios en la radiación infrarroja** emitida naturalmente por los cuerpos calientes, como personas o animales.  
+No emiten ninguna señal; simplemente **perciben variaciones térmicas** en su campo de visión.
+
+📗 **Principio de funcionamiento**
+
+- Todos los objetos con temperatura superior al cero absoluto emiten **radiación infrarroja (IR)**.
+
+- El **sensor PIR** contiene un **cristal piroeléctrico** que genera una pequeña carga eléctrica cuando cambia la cantidad de radiación IR que recibe.
+
+- Cuando una persona entra o sale del área de detección, el sensor percibe ese cambio y **activa su salida**.
+
+📘 **Elementos del módulo PIR (HC-SR501 o similar)**
+
+| Componente               | Función                                                         |
+| ------------------------ | --------------------------------------------------------------- |
+| **Sensor piroeléctrico** | Detecta la radiación IR emitida por cuerpos calientes.          |
+| **Lente Fresnel**        | Divide el campo de visión en zonas, aumentando la sensibilidad. |
+| **Potenciómetros**       | Permiten ajustar **sensibilidad** y **tiempo de activación**.   |
+| **Circuito comparador**  | Analiza la señal y genera una salida digital (HIGH / LOW).      |
+| **LED indicador**        | Señala detección de movimiento.                                 |
+
+📙 **Pines de conexión**
+
+| Pin     | Descripción                    |
+| ------- | ------------------------------ |
+| **VCC** | Alimentación (5 V típico).     |
+| **OUT** | Salida digital (1 si detecta). |
+| **GND** | Tierra o negativo.             |
+
+📒 **Rango de detección típico**
+
+- **Distancia:** 3 – 7 m (ajustable).
+
+- **Ángulo:** ≈ 120°.
+
+- **Tiempo de retardo:** 2 – 300 s (ajustable).
+
+📘 **Funcionamiento básico**
+
+1. El módulo se calibra al encenderse (unos 30 s).
+
+2. Si detecta un cambio en la radiación IR (una persona moviéndose), la salida pasa a **HIGH (5 V)**.
+
+3. Pasado el tiempo configurado, vuelve a **LOW (0 V)**.
+
+4. Puede conectarse directamente a un pin digital del microcontrolador o a un relé.
+
+📗 **Aplicaciones**
+
+- Encendido automático de luces o ventiladores.
+
+- Sistemas de alarma o vigilancia.
+
+- Robots detectores de presencia humana.
+
+- Control de energía (apagado cuando no hay movimiento).
+
+📕 **Ventajas y limitaciones**
+
+| Ventajas                                  | Limitaciones                                   |
+| ----------------------------------------- | ---------------------------------------------- |
+| Bajo consumo y fácil de usar.             | No detecta objetos inmóviles.                  |
+| Económico y de gran alcance.              | Sensible a fuentes de calor intensas.          |
+| No emite radiación, completamente pasivo. | Necesita unos segundos de calibración inicial. |
+
+#### 4.4.3 Sensores ultrasónicos aplicados a detección de movimiento
+
+![](img/ultrasonido.jpg)
+
+Aunque los **sensores de ultrasonido** ya se estudiaron en el bloque anterior (ver 4.3.3), también pueden emplearse como **sensores de presencia o movimiento**, ya que permiten **detectar objetos que se acercan, se alejan o entran en una zona de control**.
+
+📘 **Principio de funcionamiento**
+
+- El sensor **emite ondas ultrasónicas** (≈40 kHz) y mide el tiempo que tardan en **reflejarse y volver** al receptor.
+
+- Si **no hay ningún objeto**, el eco tarda más en regresar o no se detecta.
+
+- Si **un objeto o persona entra en el área**, el tiempo de retorno **disminuye** o aparece un **nuevo eco**.
+
+- El microcontrolador compara esas variaciones y **detecta la presencia o el movimiento**.
+
+📗 **Ventajas frente a los sensores PIR**
+
+- Detecta **cualquier tipo de objeto**, no solo cuerpos calientes.
+
+- Funciona en **oscuridad total**.
+
+- Permite **medir la distancia exacta** al objeto.
+
+- Ideal para sistemas de **proximidad o control de nivel**.
+
+📕 **Limitaciones**
+
+- No atraviesa materiales (la onda se refleja).
+
+- Puede verse afectado por la temperatura, humedad o ángulo de incidencia.
+
+- El ángulo de detección es **estrecho (~15°)**.
+
+- Si hay varios sensores cercanos, pueden **interferirse**.
+
+📙 **Ejemplo de aplicación como sensor de movimiento**
+
+Con un **HC-SR04** o similar:
+
+- Si la distancia medida **varía bruscamente**, se interpreta como **presencia o movimiento**.
+
+- Si la distancia permanece constante durante un tiempo, se considera **sin movimiento**.
+
+#### 4.4.4 Sensores de microondas (Radar Doppler)
+
+![](img/Modulo-CWL-0516.jpg)
+
+Los **sensores de microondas** funcionan mediante el **efecto Doppler**, detectando el **movimiento de objetos** a través de la **reflexión de ondas electromagnéticas**.
+
+El módulo más común en robótica y domótica es el **RCWL-0516**.
+
+📘 **Principio de funcionamiento**
+
+- El sensor **emite ondas electromagnéticas** de unos **3,2 GHz** (banda microondas).
+
+- Si un objeto se mueve dentro del área de detección, **refleja las ondas con una ligera variación de frecuencia** (efecto Doppler).
+
+- El circuito detecta esa variación y **activa la salida digital**.
+
+📙 **Características típicas**
+
+| Parámetro               | Valor aproximado                    |
+| ----------------------- | ----------------------------------- |
+| Tensión de alimentación | 4 – 28 V DC                         |
+| Distancia de detección  | 5 – 9 m                             |
+| Ángulo de detección     | 360° (a través de objetos delgados) |
+| Tiempo de retardo       | ≈ 2 s (fijo)                        |
+| Salida                  | Digital (HIGH = detección)          |
+
+📗 **Ventajas**
+
+- Detecta movimiento **a través de paredes, plástico o cristal fino**.
+
+- No depende de la luz ni de la temperatura.
+
+- Cobertura **omnidireccional**.
+
+- Ideal para sistemas ocultos o integrados en carcasas.
+
+📕 **Desventajas**
+
+- No distingue entre personas y objetos.
+
+- Puede activarse por movimientos detrás de paredes delgadas.
+
+- Consumo algo mayor que un sensor PIR.
+
+📙 **Aplicaciones**
+
+- Alarmas y sistemas de seguridad.
+
+- Iluminación automática en interiores.
+
+- Robots que siguen movimiento incluso tras obstáculos.
+
+- Dispensadores automáticos o puertas con apertura por proximidad.
+
+#### 4.4.5 Comparativa entre sensores PIR, ultrasónicos y de microondas
+
+| Característica                   | **PIR (Infrarrojos pasivos)**   | **Ultrasonido (HC-SR04)**  | **Microondas (RCWL-0516)** |
+| -------------------------------- | ------------------------------- | -------------------------- | -------------------------- |
+| **Tipo de detección**            | Radiación infrarroja térmica    | Reflexión de ondas sonoras | Efecto Doppler (ondas EM)  |
+| **Rango típico**                 | 3 – 7 m                         | 2 – 4 m                    | 5 – 9 m                    |
+| **Ángulo de detección**          | ~120°                           | ~15°                       | 360°                       |
+| **Detecta a través de objetos**  | ❌ No                            | ❌ No                       | ✅ Sí                       |
+| **Afectado por temperatura/luz** | ✅ Sí                            | ❌ No                       | ❌ No                       |
+| **Consumo**                      | Muy bajo                        | Bajo                       | Medio                      |
+| **Salida**                       | Digital                         | Analógica/Digital          | Digital                    |
+| **Aplicaciones comunes**         | Alarmas, iluminación automática | Medición, robótica, sonar  | Seguridad, domótica, radar |
 
 © Apuntes de **Informática aplicada a sistemas electrónicos (Robótica)** – UT3  
