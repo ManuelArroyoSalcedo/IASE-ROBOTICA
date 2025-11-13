@@ -1,7 +1,5 @@
 # UT 3 Dispositivos discretos: pasivos, activos, sensores y actuadores -  PARTE 1
 
-
-
 ## 1. Introducción a los dispositivos discretos
 
 Un **dispositivo discreto** es un componente electrónico individual con una función específica dentro de un circuito.  
@@ -738,7 +736,139 @@ Estos sensores están formados por un **fotodetector** (normalmente una LDR) jun
 
 👉 En resumen, **en este módulo utilizaremos sensores de iluminación**, que internamente emplean fotodetectores como la **LDR**, pero ya listos para integrarse en los circuitos de robótica.
 
+---
 
+### 3.4 Transistores
+
+![](img/transistor-npn.jpg)
+
+#### 🔹 ¿Qué es un transistor?
+
+Un **transistor** es un **componente electrónico activo** que permite **controlar el paso de la corriente eléctrica**.
+
+Se utiliza principalmente como:
+
+- **Interruptor electrónico** (lo que más interesa en robótica y Arduino)
+
+- **Amplificador de señales** (no lo veremos en detalle en este módulo)
+
+Es uno de los componentes fundamentales de la electrónica moderna y está presente en prácticamente todos los circuitos actuales.
+
+---
+
+#### 🔹 Tipos más comunes
+
+En electrónica básica y en Arduino se utilizan sobre todo dos tipos de transistores bipolares:
+
+##### 1 NPN
+
+- Deja pasar corriente **del colector al emisor** cuando se aplica una pequeña corriente en la base.
+
+- Es el más utilizado para controlar cargas con Arduino.
+
+##### 2. PNP
+
+- Funciona al revés: conduce cuando la base está a un nivel más bajo que el emisor.
+
+- Mucho menos habitual en Arduino.
+
+Para trabajar en clase usaremos principalmente **transistores NPN**.
+
+---
+
+#### 🔹 Partes del transistor
+
+![](img/transistor-patillas.jpg)
+
+Un transistor bipolar (BJT) tiene **tres patillas**:
+
+- **Base (B)** → Señal de control
+
+- **Colector (C)** → Entrada de corriente hacia la carga
+
+- **Emisor (E)** → Salida hacia GND
+
+> La **base** es la patilla que controla el encendido o apagado del transistor.
+
+---
+
+#### 🔹 El transistor como interruptor (uso en Arduino)
+
+En robótica lo usamos casi siempre como **interruptor controlado por Arduino**.
+
+##### Funcionamiento básico:
+
+1. Arduino envía una señal a la **base** a través de una resistencia.
+
+2. El transistor “se abre” y permite que la corriente pase del **colector** al **emisor**.
+
+3. La carga (motor, relé, filamento COB, zumbador…) recibe energía desde una fuente externa de forma segura.
+
+4. Cuando Arduino pone la base a 0V, el transistor “se cierra” y la carga se apaga.
+
+##### 🔹 ¿Por qué lo necesitamos?
+
+Porque un pin de Arduino **no puede alimentar cargas grandes**:
+
+- Motores
+
+- Relés
+
+- Tiradores eléctricos
+
+- Luces potentes
+
+- Filamentos COB LED
+
+El transistor **protege el pin** y permite manejar cargas que consumen más corriente.
+
+##### 🔹 Esquema típico de uso con Arduino (transistor NPN)
+
+![](img/arduino-transistor-bjt-montaje.png)
+
+##### Ejemplos de transistores NPN que se pueden usar
+
+Los mismos que tienes en clase:
+
+- **S8050**
+
+- **S9013**
+
+- **S9014**
+
+- **C945**
+
+- **2N3904**
+
+- **2N5551**
+
+Todos ellos funcionan igual como interruptores.
+
+#### 🔹 Aplicaciones en robótica
+
+El transistor se utiliza para:
+
+- Encender motores y ventiladores
+
+- Activar relés
+
+- Controlar filamentos COB LED
+
+- Aumentar la corriente para una tira LED
+
+- Activar zumbadores potentes
+
+- Controlar módulos que necesitan más corriente de la que da el Arduino
+
+#### 🔹 Resumen
+
+- El transistor es un **componente activo** imprescindible.
+
+- En este módulo se utiliza como **interruptor electrónico**.
+
+- Permite controlar cargas que Arduino no puede alimentar directamente.
+
+- Es fundamental para el trabajo con **actuadores**, por lo que forma parte natural de la UT3 aunque no aparezca explícito en el BOCM.
 
 ---
 
@@ -747,7 +877,5 @@ Estos sensores están formados por un **fotodetector** (normalmente una LDR) jun
 UT3 Dispositivos discretos pasivos activos sensores y actuadores - Parte 2.md
 
 ---
-
-
 
 © Apuntes de **Informática aplicada a sistemas electrónicos (Robótica)** – UT3
