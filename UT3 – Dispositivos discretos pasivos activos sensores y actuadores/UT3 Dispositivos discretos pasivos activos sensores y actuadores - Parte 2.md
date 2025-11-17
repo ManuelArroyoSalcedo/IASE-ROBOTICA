@@ -6,7 +6,7 @@
 
 --- 
 
-## 📑 Índice de contenidos
+## Índice de contenidos
 
 - [4 Sensores](#4-Sensores)
 - [4.1 Sensores de temperatura](#41-sensores-de-temperatura)
@@ -55,7 +55,7 @@ Los sensores se pueden clasificar de muchas maneras, pero una de las más práct
 
 ### 4.1. Sensores de temperatura
 
-[⬅️ Bloque anterior](#4-sensores) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#42-sensores-de-luz)
+[⬅️ Bloque anterior](#4-sensores) | [🔝 Índice](#indice-de-contenidos) | [➡️ Siguiente bloque](#42-sensores-de-luz)
 
 #### 4.1.1. Concepto general de sensor de temperatura
 
@@ -304,7 +304,7 @@ Los sensores de temperatura se emplean en múltiples tareas:
 
 ### 4.2. Sensores de luz
 
-[⬅️ Bloque anterior](#4-sensores) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#42-sensores-de-temperatura)
+[⬅️ Bloque anterior](#4-sensores) | [🔝 Índice](#indice-de-contenidos) | [➡️ Siguiente bloque](#42-sensores-de-temperatura)
 
 #### 4.2.1. Introducción
 
@@ -862,7 +862,7 @@ En cambio, los **fotodiodos** y **fototransistores** reaccionan **mucho más rá
 
 ### 4.3. Sensores de sonido
 
-[⬅️ Bloque anterior](#43-sensores-de-luz) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#44-sensores-de-presencia-o-movimiento)
+[⬅️ Bloque anterior](#43-sensores-de-luz) | [🔝 Índice](#indice-de-contenidos) | [➡️ Siguiente bloque](#44-sensores-de-presencia-o-movimiento)
 
 #### 4.3.1 Introducción
 
@@ -1136,9 +1136,9 @@ Los sensores ultrasónicos son muy usados en **robótica y automatización**, ya
 > Los **sensores de ultrasonido** utilizan **ondas sonoras de alta frecuencia** para medir distancias basándose en el **tiempo que tarda el eco en regresar**.  
 > Son precisos, económicos y muy utilizados en proyectos de **robótica educativa**, donde permiten que los sistemas **“vean” sin necesidad de contacto físico**.
 
-### 4.4. Sensores de presencia o movimiento
+### 4.4. Sensores de presencia y movimiento
 
-[⬅️ Bloque anterior](#43-sensores-de-sonido) | [🔝 Índice](#índice-de-contenidos) | [➡️ Siguiente bloque](#4-sensores)
+[⬅️ Bloque anterior](#43-sensores-de-sonido) | [🔝 Índice](#indice-de-contenidos) | [➡️ Sensores](#4-sensores)
 
 #### 4.4.1 Introducción
 

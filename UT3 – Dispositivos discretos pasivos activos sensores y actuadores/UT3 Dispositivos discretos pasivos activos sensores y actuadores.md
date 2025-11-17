@@ -748,13 +748,15 @@ Un **transistor** es un **componente electrónico activo** que permite **control
 
 Se utiliza principalmente como:
 
-- **Interruptor electrónico** (lo que más interesa en robótica y Arduino)
+- **Interruptor electrónico** 
 
-- **Amplificador de señales** (no lo veremos en detalle en este módulo)
+- **Controlador de corriente / regulador**
+
+- **Amplificador de señales** (no lo veremos en detalle en este módulo).
 
 Es uno de los componentes fundamentales de la electrónica moderna y está presente en prácticamente todos los circuitos actuales.
 
----
+
 
 #### 🔹 Tipos más comunes
 
@@ -774,7 +776,7 @@ En electrónica básica y en Arduino se utilizan sobre todo dos tipos de transis
 
 Para trabajar en clase usaremos principalmente **transistores NPN**.
 
----
+
 
 #### 🔹 Partes del transistor
 
@@ -790,9 +792,9 @@ Un transistor bipolar (BJT) tiene **tres patillas**:
 
 > La **base** es la patilla que controla el encendido o apagado del transistor.
 
----
 
-#### 🔹 El transistor como interruptor (uso en Arduino)
+
+#### 🔹 1) El transistor como interruptor (uso en Arduino)
 
 En robótica lo usamos casi siempre como **interruptor controlado por Arduino**.
 
@@ -824,7 +826,7 @@ El transistor **protege el pin** y permite manejar cargas que consumen más corr
 
 ##### 🔹 Esquema típico de uso con Arduino (transistor NPN)
 
-![](img/arduino-transistor-bjt-montaje.png)
+![](file://J:\Mi unidad\Modulos\Informática aplicada a sistemas electrónicos - Robótica\UT3\img\arduino-transistor-bjt-montaje.png?msec=1763414746682)
 
 ##### Ejemplos de transistores NPN que se pueden usar
 
@@ -844,7 +846,7 @@ Los mismos que tienes en clase:
 
 Todos ellos funcionan igual como interruptores.
 
-#### 🔹 Aplicaciones en robótica
+##### 🔹 Aplicaciones en robótica
 
 El transistor se utiliza para:
 
@@ -860,15 +862,131 @@ El transistor se utiliza para:
 
 - Controlar módulos que necesitan más corriente de la que da el Arduino
 
+
+
+
+
+#### 🔹 2) El transistor como **controlador de corriente / regulador**
+
+Además de funcionar como interruptor, un transistor también puede trabajar en un modo intermedio en el que **no está totalmente saturado ni totalmente en corte**.  
+En este modo la corriente que pasa por el transistor **depende de la señal que recibe en la base**.
+
+Esto permite **regular**:
+
+- La **velocidad** de un motor de corriente continua
+
+- El **brillo** de un LED
+
+- La **intensidad** en un zumbador
+
+- La **potencia** de una carga pequeña
+
+Este uso es muy común cuando trabajamos con **PWM en Arduino**.
+
+#### 🔹¿Qué es el PWM?
+
+El **PWM (Pulse Width Modulation)** es una técnica que usa Arduino para **simular niveles intermedios de potencia**.
+
+Arduino **no puede generar voltaje analógico real**, solo puede poner un pin a:
+
+- **5V** (salida digital HIGH)
+
+- **0V** (salida digital LOW)
+
+Pero si envía pulsos muy rápidos, alternando entre 5V y 0V, y cambiando **el tiempo que está encendido respecto al tiempo que está apagado**, se puede imitar un voltaje intermedio.
+
+Ese porcentaje se llama **ciclo de trabajo (duty cycle)**.
+
+Ejemplos:
+
+- 20% encendido → carga recibe poca energía → motor lento / LED tenue
+
+- 80% encendido → carga recibe mucha energía → motor rápido / LED brillante
+
+El PWM no cambia el voltaje: cambia **cuánta energía promedio** recibe la carga.
+
+Gracias al PWM, Arduino puede controlar cuánta energía llega a la base del transistor y, por tanto, **regula la corriente que pasa por la carga**.
+
+##### 🔹 ¿Cómo funciona en modo controlador de corriente / regulador?
+
+En lugar de usarlo como interruptor (corte/saturación), el transistor opera en su **región activa**:
+
+- Una pequeña variación de corriente en la **base**
+
+- Produce una variación proporcional de corriente entre **colector → emisor**
+
+> El transistor no genera energía: solo **deja pasar más o menos** según la señal de control.
+
+Este comportamiento lo convierte en un **regulador**.
+
+
+
+##### 🔹 Ejemplo: regular la velocidad de un motor con PWM
+
+Arduino genera una señal PWM (muy rápida) que **simula voltajes intermedios**.  
+El transistor actúa como “válvula” y ajusta cuánta corriente llega al motor.
+
+###### Funcionamiento:
+
+1. Arduino envía pulsos PWM a la base.
+
+2. El transistor permite más o menos corriente según el ciclo de trabajo.
+
+3. El motor recibe más o menos potencia (energía media).
+
+4. La velocidad varía de forma suave.
+
+**⚠ Importante:**  
+Si la carga es un motor, relé o cualquier bobina, debe colocarse un **diodo en paralelo** a la carga para proteger el transistor.
+
+
+
+##### 🔹 Ejemplo: regular el brillo de un LED
+
+- PWM del 20% → poca corriente → LED tenue
+
+- PWM del 80% → más corriente → LED brillante
+
+
+
+
+
+##### 🔹 Esquema típico de regulación con PWM (transistor NPN)
+
+> Arduino (PWM) → Resistencia → Base del transistor
+> Colector → Motor / LED / carga
+> Emisor → GND
+> Fuente externa → carga → transistor
+
+La conexión es la misma que cuando funciona como interruptor; cambia la **señal PWM**, que hace que trabaje como regulador.
+
+
+
+#### 🔹 ¿Por qué es útil este modo?
+
+Porque permite:
+
+- Controlar actuadores de forma **proporcional**
+
+- Evitar golpes de corriente bruscos
+
+- Ahorrar energía
+
+- Dar un control suave (velocidad, brillo…)
+
+> Aunque un transistor puede regular corriente de forma “analógica pura”, en Arduino se utiliza **casi siempre con PWM**, porque es mucho más eficiente y el transistor no se calienta tanto.
+
+
+
 #### 🔹 Resumen
 
-- El transistor es un **componente activo** imprescindible.
+- El transistor es un **componente activo** imprescindible en electrónica y robótica.
 
-- En este módulo se utiliza como **interruptor electrónico**.
+- En Arduino se usa principalmente como **interruptor electrónico** para controlar cargas que consumen más corriente de la que puede dar un pin.
 
-- Permite controlar cargas que Arduino no puede alimentar directamente.
+- También puede funcionar como **regulador de corriente** mediante **PWM**, permitiendo controlar **velocidad**, **brillo** o **potencia** de forma proporcional.
 
-- Es fundamental para el trabajo con **actuadores**, por lo que forma parte natural de la UT3 aunque no aparezca explícito en el BOCM.
+- Es fundamental para el trabajo con **actuadores**: motores, relés, luces, zumbadores y tiras LED.
 
 ---
 
