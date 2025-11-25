@@ -1335,4 +1335,12 @@ El módulo más común en robótica y domótica es el **RCWL-0516**.
 | **Salida**                       | Digital                         | Analógica/Digital          | Digital                    |
 | **Aplicaciones comunes**         | Alarmas, iluminación automática | Medición, robótica, sonar  | Seguridad, domótica, radar |
 
+---
+
+# CONTINUA EN LA PARTE 3
+
+UT3 Dispositivos discretos pasivos activos sensores y actuadores - Parte 3.md
+
+---
+
 © Apuntes de **Informática aplicada a sistemas electrónicos (Robótica)** – UT3  
