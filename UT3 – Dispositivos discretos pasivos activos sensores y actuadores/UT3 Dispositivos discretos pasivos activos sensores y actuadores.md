@@ -756,8 +756,6 @@ Se utiliza principalmente como:
 
 Es uno de los componentes fundamentales de la electrónica moderna y está presente en prácticamente todos los circuitos actuales.
 
-
-
 #### 🔹 Tipos más comunes
 
 En electrónica básica y en Arduino se utilizan sobre todo dos tipos de transistores bipolares:
@@ -776,8 +774,6 @@ En electrónica básica y en Arduino se utilizan sobre todo dos tipos de transis
 
 Para trabajar en clase usaremos principalmente **transistores NPN**.
 
-
-
 #### 🔹 Partes del transistor
 
 ![](img/transistor-patillas.jpg)
@@ -791,8 +787,6 @@ Un transistor bipolar (BJT) tiene **tres patillas**:
 - **Emisor (E)** → Salida hacia GND
 
 > La **base** es la patilla que controla el encendido o apagado del transistor.
-
-
 
 #### 🔹 1) El transistor como interruptor (uso en Arduino)
 
@@ -862,10 +856,6 @@ El transistor se utiliza para:
 
 - Controlar módulos que necesitan más corriente de la que da el Arduino
 
-
-
-
-
 #### 🔹 2) El transistor como **controlador de corriente / regulador**
 
 Además de funcionar como interruptor, un transistor también puede trabajar en un modo intermedio en el que **no está totalmente saturado ni totalmente en corte**.  
@@ -919,8 +909,6 @@ En lugar de usarlo como interruptor (corte/saturación), el transistor opera en 
 
 Este comportamiento lo convierte en un **regulador**.
 
-
-
 ##### 🔹 Ejemplo: regular la velocidad de un motor con PWM
 
 Arduino genera una señal PWM (muy rápida) que **simula voltajes intermedios**.  
@@ -939,17 +927,11 @@ El transistor actúa como “válvula” y ajusta cuánta corriente llega al mot
 **⚠ Importante:**  
 Si la carga es un motor, relé o cualquier bobina, debe colocarse un **diodo en paralelo** a la carga para proteger el transistor.
 
-
-
 ##### 🔹 Ejemplo: regular el brillo de un LED
 
 - PWM del 20% → poca corriente → LED tenue
 
 - PWM del 80% → más corriente → LED brillante
-
-
-
-
 
 ##### 🔹 Esquema típico de regulación con PWM (transistor NPN)
 
@@ -959,8 +941,6 @@ Si la carga es un motor, relé o cualquier bobina, debe colocarse un **diodo en 
 > Fuente externa → carga → transistor
 
 La conexión es la misma que cuando funciona como interruptor; cambia la **señal PWM**, que hace que trabaje como regulador.
-
-
 
 #### 🔹 ¿Por qué es útil este modo?
 
@@ -975,8 +955,6 @@ Porque permite:
 - Dar un control suave (velocidad, brillo…)
 
 > Aunque un transistor puede regular corriente de forma “analógica pura”, en Arduino se utiliza **casi siempre con PWM**, porque es mucho más eficiente y el transistor no se calienta tanto.
-
-
 
 #### 🔹 Resumen
 
