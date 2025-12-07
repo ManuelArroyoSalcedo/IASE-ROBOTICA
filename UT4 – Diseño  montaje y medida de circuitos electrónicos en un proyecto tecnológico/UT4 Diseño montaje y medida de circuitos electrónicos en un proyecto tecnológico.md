@@ -22,19 +22,24 @@ Otro elemento esencial en el diseño es comprender los **sistemas de referencia*
 
 En este apartado aprenderemos a conectar correctamente los componentes electrónicos que se estudiaron en la UT3. Conocer sus características es el primer paso, pero para construir un circuito funcional necesitamos comprender cómo se integran dentro de un esquema y cómo deben colocarse físicamente en una protoboard o en una placa. Cada componente tiene requisitos específicos: algunos necesitan respetar la polaridad, otros requieren una resistencia adicional para funcionar con seguridad y otros deben conectarse siguiendo una orientación concreta. Este capítulo explica la forma correcta de realizar estas conexiones, los errores más comunes y las precauciones básicas para evitar fallos o daños en el circuito.
 
+> 🔎 **Importante:**  
+> En la UT3 se explicó el funcionamiento básico de varios componentes y, en algunos casos, una primera forma de conectarlos.  
+> En esta UT4 se presentan **las conexiones completas y ordenadas** tal como deben realizarse en circuitos reales.  
+> Por eso, algunos elementos volverán a aparecer aquí, pero con un enfoque más práctico y aplicado.
+
 Los elementos que vamos a explicar son los siguientes:
 
-1. Conexión de resistencias
-2. Conexión de condensadores
-3. Conexión de diodos
-4. Conexión de transistores
-5. Conexión de LEDs
-6. Conexión de bobinas e inductores
-7. Conexión de interruptores y pulsadores
-8. Conexión de fuentes de alimentación y fusibles de protección
-9. Conexión de divisores de tensión (uso práctico con resistencias)
-10. Conexión de sensores (LDR, NTC, PIR, ultrasonido)
-11. Conexión de actuadores (motor DC, servo, relé, zumbador)
+1. [Conexión de resistencias](#21-conexión-de-resistencias)
+2. [Conexión de condensadores](#22-conexión-de-condensadores)
+3. [Conexión de diodos](#23-conexión-de-diodos)
+4. [Conexión de transistores](#24-conexión-de-transistores)
+5. [Conexión de LEDs](#25-conexión-de-leds)
+6. [Conexión de bobinas e inductores](#26-conexión-de-bobinas-e-inductores)
+7. [Conexión de interruptores y pulsadores](#27-conexión-de-interruptores-y-pulsadores)
+8. [Conexión de fuentes de alimentación y fusibles de protección](#28-conexión-de-fuentes-de-alimentación-y-fusibles-de-protección)
+9. [Conexión de divisores de tensión (uso práctico con resistencias)](#29-conexión-de-divisores-de-tensión-uso-práctico-con-resistencias)
+10. [Conexión de sensores (LDR, NTC, PIR, ultrasonido)](#210-conexión-de-sensores-ldr-ntc-pir-ultrasonido)
+11. [Conexión de actuadores (motor DC, servo, relé, zumbador)](#211-conexión-de-actuadores-motor-dc-servo-relé-zumbador)
 
 ### 2.1 Conexión de resistencias
 
