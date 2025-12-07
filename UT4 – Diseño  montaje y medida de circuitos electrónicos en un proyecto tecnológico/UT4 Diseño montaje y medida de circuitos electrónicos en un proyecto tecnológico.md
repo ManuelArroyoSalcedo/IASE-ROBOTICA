@@ -628,6 +628,27 @@ Ejemplo:
 
 La resistencia puede estar **antes o después** del LED; el orden no importa mientras esté en serie.
 
+El valor de la resistencia se calcula con la **Ley de Ohm**:
+
+#### $R = \frac{V_{fuente} - V_f}{I}$
+
+Donde:
+
+- ($V_{fuente}$): tensión de la fuente de alimentación.
+- ($V_f$): caída de tensión del LED.
+- ($I$): corriente deseada (normalmente entre 10 mA y 20 mA).
+
+**Ejemplo:** Si alimentamos un LED rojo $(V_f = 2 V)$ con una fuente de 5 V y queremos una corriente de 15 mA:
+
+#### $R = \frac{5 V - 2 V}{0.015 A} = 200 Ω$
+
+El valor estándar más próximo sería **220 Ω**.
+
+Emiten luz al ser polarizados directamente.
+
+- Colores: rojo, verde, azul, blanco, RGB.
+- Aplicaciones: indicadores luminosos, pantallas.
+
 #### Conexión en protoboard
 
 Ejemplo de conexión típica:
@@ -701,7 +722,16 @@ La bobina suele formar parte de una **carga inductiva**, como un relé o un moto
 
 Cuando una bobina forma parte de la carga (como en relés o motores) y se controla mediante un transistor, debe añadirse un **diodo en paralelo y en sentido inverso** para evitar daños:
 
-`+V → [Bobina] → C            │          [Diodo]            │           GND`
+```text
+        +V
+         │
+      [Bobina]
+         │
+Colector ┘
+Emisor ── GND
+
+Diodo: en inversa entre los dos extremos de la bobina
+```
 
 #### **Resumen**
 
@@ -712,6 +742,16 @@ Cuando una bobina forma parte de la carga (como en relés o motores) y se contro
 - Producen picos de tensión al desconectarse.
 
 - Requieren **diodo de protección** si se controlan con un transistor.
+
+#### Errores comunes
+
+- No usar un diodo de protección al controlar relés o motores.
+
+- Confundir la resistencia de la bobina con su función real (el efecto inductivo es lo importante).
+
+- Suponer que tienen polaridad (solo ocurre en inductores especiales).
+
+- Colocar bobinas en serie en circuitos de DC sin conocer su comportamiento.
 
 ### 2.7 Conexión de interruptores y pulsadores
 
@@ -781,7 +821,7 @@ Conexión típica:
 ```text
 +5V ────┐
         │
-       [ Pulsador ]
+   [ Pulsador ]
         │
    Entrada o carga
         │
@@ -838,7 +878,7 @@ Para eliminar rebotes, añadimos un **condensador de 100 nF** (0,1 µF):
            │
           GND
            │
-         [C = 100 nF]
+       [C = 100 nF]
            │
           GND
 ```
@@ -868,8 +908,8 @@ Conexión típica para encender una carga:
 Conexión típica como selector:
 
 ```text
-       +V
-        │
+      +V
+       │
      [INT]
        │
  Señal ON/OFF
@@ -1069,8 +1109,6 @@ R2
 GND
 ```
 
-
-
 #### **2.9.3 Selección de valores de R1 y R2**
 
 Para los montajes de esta unidad, se recomiendan valores entre:
@@ -1116,3 +1154,351 @@ Por eso suele usarse para señales y mediciones, no para alimentar dispositivos.
 • Conectar un LED o motor directamente al divisor  
 • Tomar la salida desde la resistencia equivocada  
 • Colocar las resistencias en la misma línea interna de la protoboard sin dejar un nodo intermedio
+
+### 2.10 Conexión de sensores (LDR, NTC, PIR, ultrasonido)
+
+Los sensores permiten medir variables del entorno y convertirlas en señales eléctricas que pueden ser interpretadas por un circuito o un microcontrolador. Cada tipo de sensor tiene una forma concreta de conectarse, ya sea porque necesita un divisor de tensión, una alimentación específica o porque genera señales digitales o analógicas.
+
+En este apartado se explica cómo conectar correctamente los sensores más habituales de la UT4: **LDR, NTC, PIR y módulo de ultrasonidos HC-SR04**.
+
+#### 🟫 Sensores de tipo resistivo: LDR y NTC
+
+Los sensores resistivos modifican su resistencia interna según la variable ambiental que miden:
+
+- La **LDR** disminuye su resistencia cuando recibe luz.
+
+- La **NTC** disminuye su resistencia cuando aumenta la temperatura.
+
+Como ambos son resistencias variables, **no entregan una tensión directamente**.  
+Necesitan un **divisor de tensión**, que permite obtener un valor analógico compatible con Arduino u otros sistemas.
+
+##### Conexión típica de una LDR o una NTC con divisor de tensión
+
+```text
++5V ──[Sensor]──┬── (Salida analógica)
+                │
+                └──[Resistencia fija]── GND
+```
+
+El punto central (nodo entre sensor y resistencia fija) proporciona una tensión proporcional al cambio de resistencia.
+
+Valores recomendados:
+
+- Resistencia fija: **10 kΩ**, adecuada para la mayoría de LDR y NTC.
+
+- La salida se conecta a una **entrada analógica** del microcontrolador.
+
+##### Funcionamiento
+
+- Si la resistencia del sensor **baja**, la salida sube o baja en función de cómo esté colocado.
+
+- Si la resistencia del sensor **sube**, ocurre lo contrario.
+
+Si el comportamiento es inverso al deseado, basta con **intercambiar las posiciones** del sensor y la resistencia fija en el divisor.
+
+##### Aplicaciones típicas
+
+- LDR: medir luz ambiente para activar LEDs o controlar displays.
+
+- NTC: medir temperatura para ventilación, alarmas o control de motores.
+
+##### Errores comunes en sensores resistivos
+
+- Conectar la LDR o la NTC **directamente a una entrada analógica** sin divisor (no funcionará).
+
+- Usar valores de resistencia muy bajos o muy altos, provocando señales poco útiles.
+
+- Alejar demasiado las pistas o cables, lo que introduce ruido en la señal.
+
+- Conectar el divisor a **3.3V** cuando se está leyendo con una entrada **5V**, generando incompatibilidades.
+
+#### 🟦 Sensor PIR (detección de movimiento)
+
+El sensor PIR (Passive Infrared Sensor) detecta variaciones en la radiación infrarroja producidas por el movimiento de personas o animales.  
+A diferencia de la LDR o NTC, el PIR **no produce una señal analógica**, sino un **pulso digital**.
+
+##### Patillaje típico de un sensor PIR
+
+- **VCC** → alimentación (5 V)
+
+- **GND** → masa
+
+- **OUT** → salida digital (HIGH cuando detecta movimiento)
+
+##### Conexión típica del PIR
+
+`+5V → VCC GND → GND Salida → Pin digital del microcontrolador`
+
+La señal de salida suele ser:
+
+- **HIGH (3.3V–5V)** cuando detecta movimiento
+
+- **LOW (0V)** en reposo
+
+Los PIR pueden incluir potenciómetros internos para:
+
+- Ajustar la **sensibilidad**
+
+- Ajustar el **tiempo de mantenimiento del estado HIGH**
+
+##### Puntos importantes
+
+- Requiere un tiempo de **calentamiento inicial** de 15–30 segundos.
+
+- Muy sensible a cambios bruscos de temperatura ambiental.
+
+- La salida suele incluir un pequeño retraso para evitar falsas detecciones.
+
+##### Errores comunes en sensores PIR
+
+- No respetar el tiempo de inicialización del sensor.
+
+- Alimentarlo con menos tensión de la recomendada.
+
+- No compartir **GND común** entre el PIR y el microcontrolador.
+
+- Colocarlo mirando a ventanas o fuentes de calor, provocando falsas alarmas.
+
+#### 🟪 Sensor de ultrasonidos HC-SR04
+
+El HC-SR04 es un sensor muy utilizado para medir distancia mediante ondas ultrasónicas.  
+A diferencia de los anteriores, este sensor **no es resistivo** y requiere un protocolo simple para funcionar.
+
+##### Patillaje
+
+- **VCC** → 5 V
+
+- **GND** → masa
+
+- **TRIG** → pin de salida del microcontrolador
+
+- **ECHO** → pin de entrada del microcontrolador
+
+##### Conexión típica
+
+```text
++5V → VCC
+GND → GND
+Pin digital (salida) → TRIG
+Pin digital (entrada) → ECHO
+```
+
+##### Funcionamiento resumido
+
+1. El microcontrolador envía un pulso corto (10 µs) por **TRIG**.
+
+2. El sensor emite un tren de ondas ultrasónicas.
+
+3. Cuando las ondas rebotan y regresan, el sensor pone **ECHO** a HIGH durante un tiempo proporcional a la distancia.
+
+Distancia aproximada:
+
+```text
+Distancia (cm) = Tiempo_echo (µs) / 58
+```
+
+##### Tensiones de señal
+
+- TRIG acepta 5V sin problema.
+
+- ECHO entrega también 5V, por lo que **debe usarse una entrada digital tolerant a 5V** (Arduino UNO, Mega…).  
+  *En placas de 3.3V como ESP32 o Raspberry Pico es necesario un divisor o conversor de nivel.*
+
+##### Errores comunes en sensores de ultrasonidos
+
+- No unir GND del sensor con el GND del microcontrolador.
+
+- Conectar ECHO a un pin que no acepte 5V (en placas de 3.3V).
+
+- Medir a superficies blandas o inclinadas (el sonido no rebota bien).
+
+- Usar cables muy largos sin blindaje, lo que introduce ruido.
+
+- Olvidar que necesita un pequeño estabilizado entre mediciones para ser preciso.
+
+### 2.11 Conexión de actuadores (motor DC, servo, relé, zumbador)
+
+Los actuadores convierten una señal eléctrica en un movimiento físico, un sonido o un cambio mecánico. Son elementos fundamentales en cualquier sistema robótico y, en la mayoría de los casos, **requieren más corriente de la que puede entregar directamente un microcontrolador**, por lo que necesitan transistores, módulos de potencia o etapas de control.
+
+En este apartado veremos la forma correcta de conectar los actuadores más comunes: **motores DC, servomotores, relés y zumbadores**.
+
+#### 🟨Motor DC
+
+Un motor DC es una carga inductiva que consume una corriente relativamente alta. **Nunca debe conectarse directamente a un pin de un microcontrolador**. Para controlarlo se utiliza un **transistor NPN** o un **módulo puente H** si se necesita invertir el giro.
+
+##### Conexión típica de motor DC usando transistor NPN
+
+```texto
++V (alimentación del motor) ── [Motor DC] ── Colector
+Emisor ── GND
+Base ── [Resistencia 1k–2.2k] ── Pin de control
+Diodo flyback ── en paralelo con el motor (en inversa)
+```
+
+Explicación de elementos:
+
+- **Transistor NPN**: actúa como interruptor electrónico.
+
+- **Resistencia en la base**: limita la corriente que el pin entrega.
+
+- **Diodo flyback**: obligatorio; protege de picos de tensión al desconectar la bobina.
+
+- **GND común**: el motor y el microcontrolador deben compartir masa.
+
+##### Elección de la alimentación
+
+- Motores de **3–6 V**: pueden alimentarse desde una batería o fuente externa.
+
+- Motores de **9–12 V**: siempre fuente externa.
+
+Nunca alimentar un motor desde los 5V del Arduino.
+
+##### Errores comunes en motores DC
+
+- Conectar el motor directamente al microcontrolador.
+
+- Olvidar el **diodo flyback**, dañando transistor o Arduino.
+
+- No compartir masa entre fuentes externas y el microcontrolador.
+
+- Usar cables muy finos o largos que limitan la corriente.
+
+#### 🟩 Servomotor
+
+Los servos estándar (microservo SG90, MG996R, etc.) integran un pequeño motor DC, un circuito de control y una caja de engranajes.  
+A diferencia de los motores DC, **no necesitan transistor** para su control, pero sí requieren una **alimentación estable** porque consumen bastante corriente.
+
+##### Patillaje típico del servo
+
+- **Rojo** → +5V o +6V (según modelo)
+
+- **Marrón/Negro** → GND
+
+- **Naranja/Amarillo** → Señal PWM del microcontrolador
+
+##### Conexión típica del servo
+
+```textile
++5V (fuente externa recomendada) → Rojo
+GND → Negro/Marrón
+Pin PWM (Arduino, etc.) → Señal
+```
+
+##### Recomendaciones importantes
+
+- La fuente de alimentación del servo debe ser **externa** si consume más de lo que puede dar el regulador de la placa.
+
+- **GND debe ser común** entre servo y microcontrolador.
+
+- Los servos producen **ruido eléctrico**, recomendable añadir un condensador electrolítico cerca de la alimentación del servo.
+
+##### Errores comunes en servomotores
+
+- Alimentar un servo de alto consumo desde el pin 5V del Arduino.
+
+- No unir los GND de servo y Arduino.
+
+- Usar una señal digital sin PWM (los servos requieren PWM real).
+
+- Colocar varios servos en paralelo sin suficiente fuente de corriente.
+
+#### Relé
+
+El relé es un interruptor electromecánico que permite controlar cargas de mayor voltaje o corriente.  
+Los relés **no deben conectarse directamente al microcontrolador**, porque su bobina consume mucha corriente y genera picos inductivos.
+
+Por eso se usan:
+
+- Módulos de relé (ya preparados)
+
+- Relés sueltos + transistor NPN + diodo flyback
+
+##### Conexión típica de un relé usando un módulo (lo más común)
+
+```text
+VCC → 5V del microcontrolador
+GND → GND
+IN → Pin digital
+```
+
+El módulo ya incluye:
+
+- Aislamiento (opcional, según modelo)
+
+- Transistor
+
+- Diodo
+
+- Resistencias
+
+##### Conexión de un relé sin módulo
+
+```textile
++5V → una patilla de la bobina
+Otra patilla → Colector del transistor
+Emisor → GND
+Base → Resistencia → Pin digital
+Diodo → en inversa sobre la bobina
+```
+
+Los contactos del relé permiten controlar la carga:
+
+- **COM** → entrada común
+
+- **NO** → circuito abierto por defecto
+
+- **NC** → circuito cerrado por defecto
+
+##### Errores comunes en relés
+
+- Conectar la bobina directamente al microcontrolador.
+
+- Olvidar el diodo flyback si no es un módulo.
+
+- No separar la parte de potencia de la de control.
+
+- Usar un relé para cargas superiores a su capacidad.
+
+#### 🟪 Zumbador (Buzzer)
+
+Existen dos tipos:
+
+1. **Zumbador activo**: suena al recibir 5V (no necesita PWM).
+
+2. **Zumbador pasivo**: necesita señal PWM para generar tonos.
+
+##### Conexión típica del zumbador activo
+
+```textile
++5V → +
+GND → -
+```
+
+Se puede activar desde un pin digital a través de un transistor si el buzzer consume demasiado.
+
+##### Conexión del zumbador pasivo
+
+```textile
+Pin PWM → +
+GND → -
+```
+
+Permite generar tonos, alarmas y melodías.
+
+#### Errores comunes en zumbadores
+
+- Usar un pasivo como si fuera activo (no sonará).
+
+- Conectar directamente un buzzer de alto consumo al microcontrolador.
+
+- No identificar la polaridad cuando existe.
+
+---
+
+# CONTINUA EN LA PARTE 2
+
+UT4 Diseño montaje y medida de circuitos electrónicos en un proyecto tecnológico - Parte 2.md
+
+---
+
+© Apuntes de **Informática aplicada a sistemas electrónicos (Robótica)** – UT4
