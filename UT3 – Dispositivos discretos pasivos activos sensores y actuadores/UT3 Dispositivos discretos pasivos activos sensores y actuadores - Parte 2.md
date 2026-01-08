@@ -390,12 +390,12 @@ En la oscuridad ocurre lo contrario: los electrones quedan menos excitados y la 
 
 Existen dos formas básicas para la conexión de nuestra LDR, pueden ser utilizadas dependiendo del fin deseado. Si disponemos de un controlador es posible modificar los resultados mediante programación.
 
-1. ***Pull-up* o  Mayor luz, mayor voltaje**: Al conectar la fotoresistencia al nodo positivo de nuestra fuente de voltaje tendremos que, al incidir una mayor cantidad de luz provocará una menor caída de voltaje o diferencial de potencial entre la fuente y el pin de referencia (Vout), por lo tanto se tendrá una lectura mayor.
-   ![](img/fotosensor_conex_maymay.jpg)
-
-2. ***Pull-down* o Mayor luz, menor voltaje**: En pocas palabras la fotoresistencia se conecta al nodo de GND y provocará un comportamiento opuesto al punto 1.<br>
-   
+1. ***Pull-up* o  Mayor oscuridad, mayor voltaje**: En este caso, la resistencia fija se conecta al nodo positivo de la fuente de voltaje y la fotoresistencia al nodo de masa (GND). Cuando disminuye la iluminación, la resistencia de la LDR aumenta, haciendo que el voltaje en el punto de referencia (Vout) se aproxime al de la fuente de alimentación.
    ![](img/fotosensor_conex_maymen.jpg)
+
+2. ***Pull-down* o Mayor luz, mayor voltaje**: Al conectar la fotoresistencia al nodo positivo de la fuente de voltaje y la resistencia fija al nodo de masa (GND), al incidir una mayor cantidad de luz sobre la LDR su resistencia disminuye. Esto provoca una menor caída de voltaje en la fotoresistencia y, por tanto, un mayor voltaje en el pin de referencia (Vout), obteniéndose una lectura mayor.<br>
+   
+   ![](img/fotosensor_conex_maymay.jpg)
 
 Se puede sustituir el resistor por un potenciómetro si vamos a cambiar de un estado a otro, por lo tanto la iluminación va a variar, con esto evitamos modificar el código de programación.
 
