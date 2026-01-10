@@ -1,6 +1,6 @@
 # Informática aplicada a sistemas electrónicos (robótica)
 
-Material para el módulo CMO-311 Informática aplicada a sistemas informáticos (robótica).
+Material para el módulo CMO-311 Informática aplicada a sistemas electrónicos (robótica).
 
 ## Apuntes
 
