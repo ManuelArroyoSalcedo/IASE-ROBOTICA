@@ -104,7 +104,7 @@ Su funcionamiento se basa en:
 
 #### 🧱 Componentes principales de una impresora FDM
 
-<img src="G:\Mi unidad\Modulos\Informática aplicada a sistemas electrónicos - Robótica\UT6\img\img001.png" alt="img001" style="zoom:50%;" />
+<img src="img/img001.png" alt="img001" style="zoom:50%;" />
 
 ###### 1️⃣ Bobina de filamento
 
@@ -137,7 +137,7 @@ Temperaturas habituales:
 ---
 
 ###### 4️⃣ Boquilla (nozzle)
-<img src="G:\Mi unidad\Modulos\Informática aplicada a sistemas electrónicos - Robótica\UT6\img\img04.jpg" alt="img04" style="zoom: 20%;" />
+<img src="img/img04.jpg" alt="img04" style="zoom: 20%;" />
 
 - Es la salida final del material fundido.
 - Diámetro habitual: 0,4 mm.
@@ -151,7 +151,7 @@ Cuanto menor es el diámetro:
 
 ###### 5️⃣ Cama caliente (heatbed)
 
-<img src="G:\Mi unidad\Modulos\Informática aplicada a sistemas electrónicos - Robótica\UT6\img\ig06.png" alt="ig06" style="zoom:33%;" />
+<img src="img/ig06.png" alt="ig06" style="zoom:33%;" />
 
 - Superficie donde se imprime la pieza.
 - Puede calentarse para mejorar la adhesión.
@@ -282,7 +282,7 @@ Funcionan fundiendo un filamento plástico que se deposita capa a capa.
 
 #### 🧪 2️⃣ Impresoras de Resina (SLA / MSLA)
 
-<img src="G:\Mi unidad\Modulos\Informática aplicada a sistemas electrónicos - Robótica\UT6\img\img01.webp" alt="img01" style="zoom: 50%;" />
+<img src="img/img01.webp" alt="img01" style="zoom: 50%;" />
 
 <img src="img/resin-for-sla-3d-printing-all-types-elegoo-west3d-3d-printing-supplies-elegoo-481177.jpg" alt="Resin for SLA 3D Printing All-Types (ELEGOO)" style="zoom:25%;" />
 
@@ -488,7 +488,7 @@ Antes de imprimir una pieza, es necesario **diseñarla en un entorno de modelado
 
 El diseño se realiza mediante software CAD (Computer Aided Design).
 
-![img07](G:\Mi unidad\Modulos\Informática aplicada a sistemas electrónicos - Robótica\UT6\img\img07.png)
+![img07](img/img07.png)
 
 ---
 
